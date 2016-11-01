@@ -1,0 +1,17 @@
+*.gise
+*.cmd_log
+*.lso
+*.ngc
+*.syr
+*.xst
+*.sym
+ARM_Calculator/BancoDeRegistros.stx
+*.prj
+*.ngr
+*.html
+*.xmsgs
+*.sdbx
+*.sdbl
+*.xml
+ARM_Calculator/iseconfig/PC.xreport
+*.xrpt
