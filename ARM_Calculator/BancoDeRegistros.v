@@ -2,7 +2,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Create Date:    16:34:09 09/15/2016 
-// Integrantes: Javier Cordero, Martín Barquero, Sebastián González, Danny Mejías
+// 
 // Restricciones:
 //    - Tienen dos entradas de un bit para habilitación de escritura y lectura (REG_W y REG_R respectivamente)
 //			Las entradas A_R,B_R,C_w indican direcciones de 0a 32 por lo que son de 5 bits
