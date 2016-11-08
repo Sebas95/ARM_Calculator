@@ -1,10 +1,10 @@
 		ORR		R1,R1,#34       ;PROVISIONALES PARA CARGAR LOS OPERANDOS DE MEM
 		ORR		R2,R2,#3       ;PROVISIONALES PARA CARGAR LOS OPERANDOS DE MEM
-
-
-
-		AND     R9,R9,#0        ;pone R9 en cero
-		AND     R0,R0,#0        ;pone R0 en cero
+		
+		
+		
+		AND		R9,R9,#0        ;pone R9 en cero
+		AND		R0,R0,#0        ;pone R0 en cero
 		AND		R3,R3,#0		 ;pone el contador en cero
 		ADD		R9,R9,#65536    ;carga primera posicion de memoria de datos
 		STR		R1,[R9]
