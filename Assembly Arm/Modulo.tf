@@ -1,6 +1,13 @@
-		ORR		R1,R1,#98
-		ORR		R2,R2,#10
-		ORR		R3,R3,#0
+		ORR		R1,R1,#98       ;PROVISIONALES PARA CARGAR LOS OPERANDOS DE MEM
+		ORR		R2,R2,#10       ;PROVISIONALES PARA CARGAR LOS OPERANDOS DE MEM
+
+
+
+
+
+		AND       R9,R9,#0        ;pone R9 en cero
+		AND       R0,R0,#0        ;pone R0 en cero
+		AND		R3,R3,#0		 ;pone el contador en cero
 		ADD		R9,R9,#65536
 		STR		R1,[R9]
 		STR		R2,[R9,#4]
