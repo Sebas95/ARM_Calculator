@@ -56,4 +56,5 @@ assign B[28]= A[26];
 assign B[29]= A[27];
 assign B[30]= A[28];
 assign B[31]= A[29];
+
 endmodule
