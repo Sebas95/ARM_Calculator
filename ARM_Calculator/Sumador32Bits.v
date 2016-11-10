@@ -55,7 +55,7 @@ module thirtyTwoBitsFullAdder(
 	 
 	 wire c1,c2,c3,c4,c5,c6,c7;
 	 
-	fourbitFullAdder fbfa1 (.a(a[3:0]), .b(b[3:0]),.c0(0),.c4(c1),.s(s[3:0])
+	fourbitFullAdder fbfa1 (.a(a[3:0]), .b(b[3:0]),.c0(c0),.c4(c1),.s(s[3:0])
 	);
 		
 	fourbitFullAdder fbfa2 (.a(a[7:4]),.b(b[7:4]),.c0(c1),.c4(c2),.s(s[7:4])
