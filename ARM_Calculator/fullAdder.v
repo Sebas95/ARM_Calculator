@@ -71,5 +71,5 @@ module fourbitFullAdder(
 	xor(s[1],c[0],p[1]);
 	xor(s[2],c[1],p[2]);
 	xor(s[3],c[2],p[3]);
-	or(c4,c[3],0);
+	or(c4,c[3],1'b0);
 endmodule
