@@ -25,14 +25,14 @@
 module DecodeTest;
 
 	// Inputs
-	reg clk;
-	reg [3:0] Rn;
-	reg [3:0] Rm;
-	reg [3:0] Rd;
-	reg [31:0] WD3;
-	reg [31:0] PCPlus4;
-	reg WE3;
-	reg [1:0] RegSrc;
+	reg clk = 1;
+	reg [3:0] Rn = 0;
+	reg [3:0] Rm = 0;
+	reg [3:0] Rd = 0;
+	reg [31:0] WD3 = 0;
+	reg [31:0] PCPlus4 = 0;
+	reg WE3 = 0;
+	reg [1:0] RegSrc = 0;
 
 	// Outputs
 	wire [31:0] RD1;
@@ -53,119 +53,61 @@ module DecodeTest;
 		.RD2(RD2), 
 		.PCPlus8(PCPlus8)
 	);
-
+	always #5 clk = ~clk;
 	initial begin
 		// Initialize Inputs
-		clk = 0;
 		Rn = 4'd0;
 		Rm = 4'd0;
 		Rd = 4'd0;
-		WD3 = 32'd0;
+		WD3 = 32'd1;
 		PCPlus4 = 0;
-		WE3 = 1;
+		WE3 = 0;
 		RegSrc = 2'b0;
 
 		// Wait 100 ns for global reset to finish
-		#500;
+		#10;
         
-		clk = 1;
 		Rn = 4'd0;
+		Rm = 4'd0;
+		Rd = 4'd1;
+		WD3 = 32'd555;
+		PCPlus4 = 4;
+		WE3 = 0;
+		RegSrc = 2'b0;
+
+		#10
+		
+		Rn = 4'd0;
+		Rm = 4'd1;
+		Rd = 4'd5;
+		WD3 = 32'd666;
+		PCPlus4 = 4;
+		WE3 = 0;
+		RegSrc = 2'b0;		
+		
+
+		#10
+		
+		Rn = 4'd1;
+		Rm = 4'd5;
+		Rd = 4'd7;
+		WD3 = 32'd666;
+		PCPlus4 = 4;
+		WE3 = 1;
+		RegSrc = 2'b0;	
+
+		#10
+		
+		Rn = 4'd7;
 		Rm = 4'd0;
 		Rd = 4'd5;
 		WD3 = 32'd666;
 		PCPlus4 = 4;
 		WE3 = 1;
-		RegSrc = 2'b0;
-
-		// Wait 100 ns for global reset to finish
-		#500;
-
-		clk = 0;
-		Rn = 4'd0;
-		Rm = 4'd0;
-		Rd = 4'd5;
-		WD3 = 32'd666;
-		PCPlus4 = 8;
-		WE3 = 0;
-		RegSrc = 2'b0;
-
-		// Wait 100 ns for global reset to finish
-		#500;		
-		
-		clk = 1;
-		Rn = 4'd0;
-		Rm = 4'd5;
-		Rd = 4'd4;
-		WD3 = 32'd66;
-		PCPlus4 = 12;
-		WE3 = 1;
-		RegSrc = 2'b0;
-		
-		#500;		
-		
-		clk = 0;
-		Rn = 4'd0;
-		Rm = 4'd5;
-		Rd = 4'd4;
-		WD3 = 32'd777;
-		PCPlus4 = 16;
-		WE3 = 0;
-		RegSrc = 2'b0;
-				
-		#500;
-		
-		clk = 1;
-		Rn = 4'd4;
-		Rm = 4'd5;
-		Rd = 4'd4;
-		WD3 = 32'd66;
-		PCPlus4 = 20;
-		WE3 = 1;
-		RegSrc = 2'b0;
-		
-		#500;	
-		
-		clk = 0;
-		Rn = 4'd0;
-		Rm = 4'd5;
-		Rd = 4'd4;
-		WD3 = 32'd66;
-		PCPlus4 = 24;
-		WE3 = 1;
-		RegSrc = 2'b0;		
-		
-		#500;
-		
-		clk = 1;
-		Rn = 4'd4;
-		Rm = 4'd5;
-		Rd = 4'd4;
-		WD3 = 32'd66;
-		PCPlus4 = 28;
-		WE3 = 1;
-		RegSrc = 2'b0;	
-
-		#500;
-		
-		clk = 0;
-		Rn = 4'd4;
-		Rm = 4'd5;
-		Rd = 4'd4;
-		WD3 = 32'd777;
-		PCPlus4 = 32;
-		WE3 = 1;
 		RegSrc = 2'b0;			
+				
 		
-		#500;
 		
-		clk = 1;
-		Rn = 4'd4;
-		Rm = 4'd5;
-		Rd = 4'd3;
-		WD3 = 32'd777;
-		PCPlus4 = 32;
-		WE3 = 1;
-		RegSrc = 2'b0;				
 				
 	end
       
