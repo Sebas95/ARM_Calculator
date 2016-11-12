@@ -22,7 +22,7 @@
 module PC(
 	 input [31:0]Di, //entrada
 	 input clk, //reloj
-	 output reg [31:0] Do  //registro
+	 output reg [31:0] Do = 0  //registro
 	);
 	
 	always @(posedge clk) 
