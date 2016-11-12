@@ -41,22 +41,22 @@ module BancoDeRegistros(
     );
 //se declaran todos los 32 registros del banco de registros de 32 bits
 //se inicializan en cero
-	reg [31:0] R0;
-	reg [31:0] R1; 
-	reg [31:0] R2; 
-	reg [31:0] R3;
-	reg [31:0] R4; 
-	reg [31:0] R5; 
-	reg [31:0] R6; 
-	reg [31:0] R7;
-	reg [31:0] R8;
-	reg [31:0] R9;
-	reg [31:0] R10;
-	reg [31:0] R11;
-	reg [31:0] R12;
-	reg [31:0] R13;
-	reg [31:0] R14;
-	reg [31:0] R15;
+	reg [31:0] R0 = 0;
+	reg [31:0] R1 = 0; 
+	reg [31:0] R2 = 0; 
+	reg [31:0] R3 = 0;
+	reg [31:0] R4 = 0; 
+	reg [31:0] R5 = 0; 
+	reg [31:0] R6 = 0; 
+	reg [31:0] R7 = 0;
+	reg [31:0] R8 = 0;
+	reg [31:0] R9 = 0;
+	reg [31:0] R10 = 0;
+	reg [31:0] R11 = 0;
+	reg [31:0] R12 = 0;
+	reg [31:0] R13 = 0;
+	reg [31:0] R14 = 0;
+	reg [31:0] R15 = 0;
 	
 	//------------------------------------- LECTURA -----------------------------------------------------------
 	always @(posedge clk)//en el flanco positivo de REG_R se leen DA y DB
@@ -101,7 +101,7 @@ module BancoDeRegistros(
 	end
 ////---------------------------------------ESCRITURA----------------------------------------------------------
 	always @(negedge clk ) //se escribe en el flanco positivo de REG_W
-		if(WE3) //write enable 
+		if(~WE3) //write enable 
 		begin
 			case(A3)//se pregunta cual es la dirección del registro que se requiere
 				4'b0000:		R0<= WD3;
