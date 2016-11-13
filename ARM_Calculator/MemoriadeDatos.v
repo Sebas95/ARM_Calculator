@@ -26,9 +26,10 @@ module MemoriadeDatos(
     output [31:0] dataOutput
     );
 	 
+	
 	 //Ancho de las memorias
 	 localparam ADDR_SIZE = 32;
-	 localparam NWORDS = 65535;
+	 localparam NWORDS = 1024;
 	 reg [ADDR_SIZE-1:0] RAM [NWORDS - 1:0];
 
 		 
@@ -42,12 +43,10 @@ module MemoriadeDatos(
 				end
 		 end*/
 	 
-	 assign dataOutput = RAM[address[31:2]];
-	 
-	 
+	 assign dataOutput = RAM[address];	 	 
 	 
 	 //Cada negedge si el writeEnlable está activo entonces escribe el dato
 	 always@(negedge clk)
 		if(~writeEnable)
-			RAM[address[31:2]] <= dataInput;
+			RAM[address] <= dataInput;
 endmodule

@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module Alineador(
     input [31:0] A,//Variable de entrada
-    output [31:0] B//Variable de salida
+    output wire [31:0] B//Variable de salida
     );
 	 
 	// assign B={A[29:0],2'b0};//Se alinea la variable de entrada

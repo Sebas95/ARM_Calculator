@@ -18,12 +18,12 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Mux4(
+module Mux32Bits_4Entradas(
     input [31:0]A,		//Entrada 0 de 32 bits
     input [31:0]B,		//Entrada 1 de 32 bits
-	 input [31:0]C,		//Entrada 1 de 32 bits
-	 input [31:0]D,		//Entrada 1 de 32 bits
-    input [1:0]S,				//Entrada de seleccion de 1 bit
+	 input [31:0]C,		//Entrada 2 de 32 bits
+	 input [31:0]D,		//Entrada 3 de 32 bits
+    input [1:0]S,			//Entrada de seleccion de 1 bit
     output reg [31:0]Y	//Salida de data seleccionada de 32 bits
     );
 
