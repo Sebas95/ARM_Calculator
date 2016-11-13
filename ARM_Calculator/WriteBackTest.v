@@ -25,7 +25,7 @@
 module WriteBackTest;
 
 	// Inputs
-	reg clk;
+	reg clk = 1;
 	reg [31:0] ALUResult;
 	reg [31:0] WD;
 	reg MemWrite;
@@ -44,16 +44,45 @@ module WriteBackTest;
 		.Result(Result)
 	);
 
+	always #5 clk = ~clk;
+	
 	initial begin
-		// Initialize Inputs
-		clk = 0;
-		ALUResult = 0;
-		WD = 0;
+		// Initialize Inputs		
+		ALUResult = 32'd12;
+		WD = 32'd989;
 		MemWrite = 0;
-		MemtoReg = 0;
+		MemtoReg = 1;
 
 		// Wait 100 ns for global reset to finish
-		#100;
+		#10;
+		
+		ALUResult = 32'd12;
+		WD = 32'd0;
+		MemWrite = 1;
+		MemtoReg = 1;		
+		
+		#10;
+		
+		ALUResult = 32'd13;
+		WD = 32'd4554;
+		MemWrite = 1;
+		MemtoReg = 1;
+		
+		#10;
+		
+		ALUResult = 32'd12;
+		WD = 32'd4554;
+		MemWrite = 1;
+		MemtoReg = 0;	
+
+		#10;
+		
+		ALUResult = 32'd13;
+		WD = 32'd4554;
+		MemWrite = 1;
+		MemtoReg = 1;		
+		
+		
         
 		// Add stimulus here
 
