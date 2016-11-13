@@ -57,6 +57,8 @@ module ExeTest;
 		ImmSrc = 0;
 		ALUControl = 0;
 
+		//---------------------------------------------Suma, Resta, And, Or
+
 		// Wait 100 ns for global reset to finish
 		/*#100;
 		
@@ -94,9 +96,11 @@ module ExeTest;
 		ImmSrc = 0;
 		ALUControl = 2'b11;	*/	
 		
-		//Banderas
+		//----------------------------------------------Banderas
 		
 		//cero
+		/*
+		
 		#100;
 		
 		RD1 = 32'd444;
@@ -127,7 +131,41 @@ module ExeTest;
 		Imm = 0;
 		ALUSrc = 0;
 		ImmSrc = 0;
-		ALUControl = 2'b01;			  
+		ALUControl = 2'b01;		*/
+
+
+		//---------------------------------------------------ExtImm
+		
+		
+		#100;
+		
+		RD1 = 32'd999;
+		RD2 = 32'd44464;
+		Imm = 24'd6131272;
+		ALUSrc = 1;
+		ImmSrc = 0;
+		ALUControl = 2'b01;		
+
+		#100;
+		
+		RD1 = 32'd999;
+		RD2 = 32'd44464;
+		Imm = 24'd6131278;
+		ALUSrc = 1;
+		ImmSrc = 0;
+		ALUControl = 2'b00;	
+
+
+		#100;
+		
+		RD1 = 32'd999;
+		RD2 = 32'd44464;
+		Imm = 24'd6131272;
+		ALUSrc = 0;
+		ImmSrc = 0;
+		ALUControl = 2'b00;			
+		
+		
 		  
 		// Add stimulus here
 

@@ -65,6 +65,7 @@ module DecodeTest;
 		RegSrc = 2'b0;
 
 		// Wait 100 ns for global reset to finish
+		/*
 		#10;
         
 		Rn = 4'd0;
@@ -105,6 +106,41 @@ module DecodeTest;
 		PCPlus4 = 4;
 		WE3 = 1;
 		RegSrc = 2'b0;			
+		
+		*/
+		//------------------------------------Pruebas Muxes
+			
+
+		#10
+		
+		Rn = 4'd7;
+		Rm = 4'd0;
+		Rd = 4'd15;
+		WD3 = 32'd666;
+		PCPlus4 = 4;
+		WE3 = 0;
+		RegSrc = 2'b01;				
+		
+		#10
+		
+		Rn = 4'd7;
+		Rm = 4'd0;
+		Rd = 4'd5;
+		WD3 = 32'd666;
+		PCPlus4 = 4;
+		WE3 = 0;
+		RegSrc = 2'b10;
+
+		#10
+		
+		Rn = 4'd15;
+		Rm = 4'd0;
+		Rd = 4'd5;
+		WD3 = 32'd666;
+		PCPlus4 = 4;
+		WE3 = 1;
+		RegSrc = 2'b11;		
+		
 				
 		
 		
