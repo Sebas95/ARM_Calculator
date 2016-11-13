@@ -109,7 +109,58 @@ module DecodeTest;
 		
 		*/
 		//------------------------------------Pruebas Muxes
+		
+		#10
+		
+		Rn = 4'd7;
+		Rm = 4'd0;
+		Rd = 4'd14;
+		WD3 = 32'd141414;
+		PCPlus4 = 4;
+		WE3 = 0;
+		RegSrc = 2'b00;	
+
+		#10
+		
+		Rn = 4'd7;
+		Rm = 4'd0;
+		Rd = 4'd4;
+		WD3 = 32'd444;
+		PCPlus4 = 4;
+		WE3 = 0;
+		RegSrc = 2'b00;	
+
+		#10
+		
+		Rn = 4'd7;
+		Rm = 4'd0;
+		Rd = 4'd9;
+		WD3 = 32'd999;
+		PCPlus4 = 4;
+		WE3 = 0;
+		RegSrc = 2'b00;		
+
+		#10
+		
+		Rn = 4'd7;
+		Rm = 4'd0;
+		Rd = 4'd7;
+		WD3 = 32'd777;
+		PCPlus4 = 4;
+		WE3 = 0;
+		RegSrc = 2'b00;		
+
+		#10
+		
+		Rn = 4'd7;
+		Rm = 4'd0;
+		Rd = 4'd15;
+		WD3 = 32'd1515;
+		PCPlus4 = 4;
+		WE3 = 0;
+		RegSrc = 2'b00;			
 			
+		//--------------------------
 
 		#10
 		
@@ -118,28 +169,38 @@ module DecodeTest;
 		Rd = 4'd15;
 		WD3 = 32'd666;
 		PCPlus4 = 4;
-		WE3 = 0;
+		WE3 = 1;
 		RegSrc = 2'b01;				
 		
 		#10
 		
 		Rn = 4'd7;
 		Rm = 4'd0;
-		Rd = 4'd5;
+		Rd = 4'd9;
 		WD3 = 32'd666;
 		PCPlus4 = 4;
-		WE3 = 0;
+		WE3 = 1;
 		RegSrc = 2'b10;
 
 		#10
 		
-		Rn = 4'd15;
+		Rn = 4'd13;
 		Rm = 4'd0;
-		Rd = 4'd5;
+		Rd = 4'd4;
 		WD3 = 32'd666;
 		PCPlus4 = 4;
 		WE3 = 1;
-		RegSrc = 2'b11;		
+		RegSrc = 2'b11;	
+
+		#10
+		
+		Rn = 4'd4;
+		Rm = 4'd9;
+		Rd = 4'd7;
+		WD3 = 32'd666;
+		PCPlus4 = 4;
+		WE3 = 1;
+		RegSrc = 2'b10;			
 		
 				
 		
