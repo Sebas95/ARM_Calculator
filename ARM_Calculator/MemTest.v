@@ -4,7 +4,7 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   23:49:57 11/13/2016
+// Create Date:   21:28:15 11/12/2016
 // Design Name:   WriteBack
 // Module Name:   C:/Users/Giovanni/Documents/GitHub/ARM_Calculator/ARM_Calculator/WriteBackTest.v
 // Project Name:  ARM_Calculator
@@ -22,47 +22,66 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module WriteBackTest;
+module MemTest;
 
 	// Inputs
-	reg [31:0] ReadData;
+	reg clk = 1;
 	reg [31:0] ALUResult;
-	reg MemtoReg;
+	reg [31:0] WD;
+	reg MemWrite;
 
 	// Outputs
-	wire [31:0] Result;
+	wire [31:0] ReadData;
 
 	// Instantiate the Unit Under Test (UUT)
-	WriteBack uut (
-		.ReadData(ReadData), 
+	Mem uut (
+		.clk(clk), 
 		.ALUResult(ALUResult), 
-		.MemtoReg(MemtoReg), 
-		.Result(Result)
+		.WD(WD), 
+		.MemWrite(MemWrite), 
+		.ReadData(ReadData)
 	);
 
+	always #5 clk = ~clk;
+	
 	initial begin
-		// Initialize Inputs
-		ReadData = 0;
-		ALUResult = 0;
-		MemtoReg = 0;
-
-		// Wait 100 ns for global reset to finish
-		#100;
+		// Initialize Inputs		
+		ALUResult = 32'd12;
+		WD = 32'd989;
+		MemWrite = 0;
 		
-		ReadData = 32'd877865;
-		ALUResult = 32'd3425234235;
-		MemtoReg = 0;
 
 		// Wait 100 ns for global reset to finish
-		#100;		
+		#10;
 		
-		ReadData = 32'd877865;
-		ALUResult = 32'd3425234235;
-		MemtoReg = 1;
+		ALUResult = 32'd12;
+		WD = 32'd0;
+		MemWrite = 1;
+				
+		
+		#10;
+		
+		ALUResult = 32'd13;
+		WD = 32'd4554;
+		MemWrite = 1;
+		
+		
+		#10;
+		
+		ALUResult = 32'd12;
+		WD = 32'd4554;
+		MemWrite = 1;
 
-		// Wait 100 ns for global reset to finish
-		#100;	
-		     
+		#10;
+		
+		ALUResult = 32'd13;
+		WD = 32'd4554;
+		MemWrite = 1;
+				
+		
+		
+        
+		// Add stimulus here
 
 	end
       
