@@ -32,6 +32,8 @@ module Decoder(
 	 output [1:0]RegSrc,
 	 output [1:0]ALUControl
     );
+	 
+	 
 
 
 endmodule
