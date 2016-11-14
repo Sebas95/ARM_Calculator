@@ -61,9 +61,10 @@ module ConditionalLogic(
 		
 	 end
 	 
-	 assign  PCSrc = PCS & CondEx;
-	 assign  RegWrite = RegW & CondEx;
-	 assign  MemWrite = MemW & CondEx;
+	 //logica negativa
+	 assign  PCSrc = ~(PCS & CondEx);
+	 assign  RegWrite = ~(RegW & CondEx);
+	 assign  MemWrite = ~(MemW & CondEx);
 	 
 	 
 	 
