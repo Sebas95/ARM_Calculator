@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    09:07:11 11/10/2016 
+// Create Date:    19:22:12 11/12/2016 
 // Design Name: 
-// Module Name:    Decoder 
+// Module Name:    WriteBack 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,22 +18,22 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Decoder(
-    input [1:0]Op,
-    input [5:0]Funct,
-    input [3:0]Rd,
-	 output [1:0]FlagW,
-	 output PCS,
-	 output RegW,
-	 output MemW,
-	 output MemtoReg,
-	 output [1:0]ALUSrc,
-	 output [1:0]ImmSrc,
-	 output [1:0]RegSrc,
-	 output [1:0]ALUControl
+module Mem(
+    input clk,
+    input [31:0] ALUResult,
+    input [31:0] WD,
+    input MemWrite,
+    output wire[31:0] ReadData	 	 
+    );
+		
+	 
+	 MemoriadeDatos DataMemoriaWriteBack(
+		.clk(clk),
+		.writeEnable(MemWrite),
+		.dataInput(WD),
+		.address(ALUResult),
+		.dataOutput(ReadData)
     );
 	 
 	 
-
-
 endmodule
