@@ -24,27 +24,40 @@ module MainDecoder(
 	 output RegW,
 	 output MemW,
 	 output MemtoReg,
-	 output ALUSrc,
+	 output [1:0] ALUSrc,
 	 output [1:0] ImmSrc,
-	 output [1:0] RegSrc
+	 output [1:0] RegSrc,
+	 output Branch,
+	 output ALUOp
     );
 	 
 																					                
-	 assign RegW = (Op == 2'01) ? 1'b1 : 1'b0;
+	 assign RegW     =  (((Op == 2'b01) & ~(Funct[0])) | (Op == 2'b10) ) ? 1'b0 : 
+						     1'b1;
 	 
-	 assign MemW = ((Op == 2'01) & ~Funct[0]) ? 1'b1 : 1'b0;
+	 assign MemW     =  ((Op == 2'b01) & ~Funct[0]) ? 1'b1 : 1'b0;
 	 
-	 assign MemtoReg = ((Op == 2'01) & Funct[0]) ? 1'b1 : 1'b0;
+	 assign MemtoReg =  (Op == 2'b01) ? 1'b1 : 1'b0;
 	 
-	 assign ALUSrc = ((Op == 2'00) & ~Funct[5]) ? 1'b0 : 1'b1;
+	 assign ALUSrc   =  ((Op == 2'b00) & ~Funct[5]) ? 2'b0 : 
+							  (Op == 2'b10) ? 2'b10 :
+								2'b01;
 	 
-	 assign ImmSrc = ((Op == 2'01)) ? 1'b0 : 
-						  ((Op == 2'00)) ? 1'b0 : 
-						  ((Op == 2'00)) ? 1'b1 :
-							1'b0;
+	 assign ImmSrc   =  ((Op == 2'b00) & (Funct[5]))  ? 2'b01 :
+							  ((Op == 2'b01) & (Funct[5])) ?  2'b10:
+							  ((Op == 2'b01) & (~Funct[5])) ?  2'b11:
+							  (Op == 2'b10) ?  2'b01:
+							  2'b11;
 	 
-	 assign RegSrc = ();
-						
+	 assign RegSrc   =  ((Op == 2'b00) & ~Funct[5]) ? 2'b00 :
+							  (((Op == 2'b00) & Funct[5]) | 
+							  (Op == 2'b01)) ? 2'b10 :
+							  2'b11;
+								
+	assign ALUOp  	  =  (Op == 2'b00) ? 1'b1 : 1'b0;
+	
+	assign Branch    =  (Op == 2'b10) ? 1'b1 : 1'b0;
+					
 
 
 endmodule

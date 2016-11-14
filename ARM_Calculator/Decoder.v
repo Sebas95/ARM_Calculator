@@ -19,21 +19,46 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Decoder(
-    input [1:0]Op,
-    input [5:0]Funct,
-    input [3:0]Rd,
-	 output [1:0]FlagW,
-	 output PCS,
-	 output RegW,
-	 output MemW,
-	 output MemtoReg,
-	 output [1:0]ALUSrc,
-	 output [1:0]ImmSrc,
-	 output [1:0]RegSrc,
-	 output [1:0]ALUControl
+    input  wire [1:0]Op,
+    input  wire [5:0]Funct,
+    input  wire [3:0]Rd,
+	 output wire [1:0]FlagW,
+	 output wire PCS,
+	 output wire RegW,
+	 output wire MemW,
+	 output wire MemtoReg,
+	 output wire [1:0]ALUSrc,
+	 output wire [1:0]ImmSrc,
+	 output wire [1:0]RegSrc,
+	 output wire [1:0]ALUControl
     );
 	 
+	ALUDecoder ALUDecoder (
+		.Funct(Funct[4:0]), 
+		.ALUOp(ALUOp), 
+		.ALUControl(ALUControl), 
+		.FlagW(FlagW)
+	);	
 	 
-
-
+	MainDecoder MainDecoder (
+		.Op(Op), 
+		.Funct(Funct), 
+		.RegW(RegW), 
+		.MemW(MemW), 
+		.MemtoReg(MemtoReg), 
+		.ALUSrc(ALUSrc), 
+		.ImmSrc(ImmSrc), 
+		.RegSrc(RegSrc), 
+		.Branch(Branch), 
+		.ALUOp(ALUOp)
+	);	 
+	
+	
+	PCLogic PCLogic (
+		.Rd(Rd), 
+		.RegW(RegW), 
+		.Branch(Branch), 
+		.PCS(PCS)
+	);	 	
+	
 endmodule
