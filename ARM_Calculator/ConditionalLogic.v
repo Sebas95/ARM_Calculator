@@ -21,15 +21,50 @@
 module ConditionalLogic(
     input [3:0] Cond,
     input [3:0] ALUFlags,
-    input [1:0] FlagW,
+    input FlagW,//era de dos bits
     input PCS,
     input RegW,
     input MemW,
     input CLK,
-    output PCSrc,
-    output RegWrite,
-    output MemWrite
+    output wire PCSrc,
+    output wire RegWrite,
+    output wire MemWrite
+	 
     );
-
-
+	 
+	 wire CondEx;
+	 reg [3:0]Flags;
+	 reg Flag_Write;
+	 
+	ConditionCheck condition_check(
+		.Cond(Cond),
+		.Flags(Flags),
+		.CondEx(CondEx)
+    );
+ 
+		 
+	always @*
+	begin
+		Flag_Write <= FlagW & CondEx;
+	end
+	
+	always @(posedge CLK)
+	begin
+		if(Flag_Write)
+		begin
+			Flags<=ALUFlags;
+		end
+		else
+		begin
+			Flags<=Flags;
+	   end
+		
+	 end
+	 
+	 assign  PCSrc = PCS & CondEx;
+	 assign  RegWrite = RegW & CondEx;
+	 assign  MemWrite = MemW & CondEx;
+	 
+	 
+	 
 endmodule
