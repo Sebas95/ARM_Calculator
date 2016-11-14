@@ -21,7 +21,7 @@
 module ConditionalLogic(
     input [3:0] Cond,
     input [3:0] ALUFlags,
-    input FlagW,//era de dos bits
+    input [1:0]FlagW,//era de dos bits
     input PCS,
     input RegW,
     input MemW,
@@ -29,40 +29,53 @@ module ConditionalLogic(
     output wire PCSrc,
     output wire RegWrite,
     output wire MemWrite
-	 
+
     );
 	 
 	 wire CondEx;
-	 reg [3:0]Flags;
-	 reg Flag_Write;
+	 reg [1:0]Flags3_2=0;
+	 reg [1:0]Flags1_0=0;
+	 
+	 wire FlagWrite_0 = FlagW[0] & CondEx;
+	 wire FlagWrite_1 = FlagW[1] & CondEx;
 	 
 	ConditionCheck condition_check(
 		.Cond(Cond),
-		.Flags(Flags),
+		.Flags({Flags3_2[1],Flags3_2[0],Flags1_0[1],Flags1_0[0]}),
 		.CondEx(CondEx)
     );
  
-		 
-	always @*
-	begin
-		Flag_Write <= FlagW & CondEx;
-	end
+		
 	
 	always @(posedge CLK)
 	begin
-		if(Flag_Write)
+		if(FlagWrite_1)
 		begin
-			Flags<=ALUFlags;
+			Flags3_2<= {ALUFlags[3],ALUFlags[2]};
 		end
 		else
 		begin
-			Flags<=Flags;
+			Flags3_2<=Flags3_2;
 	   end
-		
 	 end
 	 
+	always @(posedge CLK)
+	begin
+		if(FlagWrite_0)
+		begin
+			Flags1_0<= {ALUFlags[1],ALUFlags[0]};
+		end
+		else
+		begin
+			Flags1_0<=Flags1_0;
+	   end
+	 end 
+	 
+	 
+	 
+	 
 	 //logica negativa
-	 assign  PCSrc = ~(PCS & CondEx);
+	 assign  PCSrc = PCS & CondEx;
 	 assign  RegWrite = ~(RegW & CondEx);
 	 assign  MemWrite = ~(MemW & CondEx);
 	 

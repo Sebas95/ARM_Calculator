@@ -21,7 +21,7 @@
 module ConditionCheck(
 	input [3:0]Cond,
 	input [3:0]Flags, //NZCV
-	output reg CondEx
+	output reg CondEx=0
     );
 	 
 
