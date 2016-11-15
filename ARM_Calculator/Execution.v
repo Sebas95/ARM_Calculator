@@ -40,7 +40,7 @@ module Execution(
     );	 
 	 
 	Alineador alineadorExe(
-		.A(ExtImm), 		//Variable de entrada
+		.A(ExtImm[29:0]), 		//Variable de entrada
 		.B(ExtImmAligned) //Variable de salida
     );	 
 	 
