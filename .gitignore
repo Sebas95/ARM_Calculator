@@ -87,3 +87,4 @@ WelcomeToTheMachine/WelcomeToTheMachine.xise
 TicTacToe/tictactoe.bit
 *.ngr
 ARM_Calculator/Mux4.bmm
+ARM_Calculator/BancoDeRegistros.v

@@ -28,14 +28,12 @@ module Decode(
     input WE3,
     input [1:0] RegSrc,
 	 output wire [31:0] RD1,
-	 output wire [31:0] RD2,
-	 //hay que quitarlo
-	 output wire [31:0] PCPlus8
+	 output wire [31:0] RD2
     );
 	 
 	 wire [3:0] RA1;
 	 wire [3:0] RA2;
-	 //wire [31:0] PCPlus8;
+	 wire [31:0] PCPlus8;
 	 
 	BancoDeRegistros registrosDecode(
 		.clk(clk),
@@ -44,6 +42,7 @@ module Decode(
 		.A2(RA2),
 		.A3(Rd),
 		.WD3(WD3),
+		.r15(PCPlus8),
 		.RD1(RD1),
 		.RD2(RD2)
 	);
