@@ -24,19 +24,24 @@ module MemoriaParaIntrucciones(
     );
 	 
 	 always@*
-	 begin
-		case(address)			
-				32'h0: dataOutput = 32'd000111;
-				32'h4: dataOutput = 32'd111222;
-				32'h8: dataOutput = 32'd222333;
-				32'hC: dataOutput = 32'd333333;
-				32'h10: dataOutput = 32'd333444;
-				32'h14: dataOutput = 32'd444555;
-				32'h18: dataOutput = 32'd555666;
-				32'h1C: dataOutput = 32'd666777;
-				32'h20: dataOutput = 32'd777888;
-				32'h24: dataOutput = 32'd888999;
-				32'h28: dataOutput = 32'd999000;	 
+	 begin                                             //RD
+		case(address)			                         //----// 
+				32'd0:  dataOutput = 32'b11100010000000000000000000000000;
+				32'd4:  dataOutput = 32'b11100010000000000001000000000000;
+				32'd8:  dataOutput = 32'b11100010000000000010000000000000;
+				32'd12: dataOutput = 32'b11100010000000000011000000000000;
+				32'd16: dataOutput = 32'b11100010000000000100000000000000;
+				32'd20: dataOutput = 32'b11100010000000000101000000000000;
+				32'd24: dataOutput = 32'b11100010000000000110000000000000;
+				32'd28: dataOutput = 32'b11100010000000000111000000000000;
+				32'd32: dataOutput = 32'b11100010000000001000000000000000;
+				32'd36: dataOutput = 32'b11100010000000001001000000000000;
+				32'd40: dataOutput = 32'b11100010000000001010000000000000;
+				32'd44: dataOutput = 32'b11100010000000001011000000000000;
+				32'd48: dataOutput = 32'b11100010000000001100000000000000;
+				32'd52: dataOutput = 32'b11100010000000001101000000000000;
+				32'd56: dataOutput = 32'b11100010000000001110000000000000;
+				32'd60: dataOutput = 32'b11100010000000001111000000000000;
 				default: dataOutput = 32'b0;
 		endcase
 	 end
