@@ -27,7 +27,7 @@ module Fetch(
     );
 	 	 
 	 wire [31:0] PCprima;
-	 wire [31:0] PC;
+	 wire [31:0] PCw;
 	 
 	 Mux muxFetch(
 		.A(PCPlus4),		//Entrada 0 de 32 bits
@@ -39,11 +39,11 @@ module Fetch(
 	 PC PCFetch(
 		.Di(PCprima), //DatoEntrada
 		.clk(clk), //Reloj
-		.Do(PC)  //DatoSalida
+		.Do(PCw)  //DatoSalida
 	 );
 	 
 	 thirtyTwoBitsFullAdder fullAdder(
-		.a(PC), 
+		.a(PCw), 
 		.b(32'd4),
 		.s(PCPlus4),
 		.c0(1'b0),
@@ -51,7 +51,7 @@ module Fetch(
     );
 	 	 	 	
 	 MemoriaParaIntrucciones instructionMemoryFetch(
-		.address(PC),
+		.address(PCw),
 		.dataOutput(Instr)
     );
 	 

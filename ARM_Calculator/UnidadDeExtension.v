@@ -24,10 +24,12 @@ module UnidadDeExtension(
 	output [31:0] dataO
     );
 	 	
-	assign dataO = (ExtImm  == 2'b00) ? {{8{1'b0}},dataI};
+	assign dataO = (ExtImm  == 2'b00) ? {{8{1'b0}},dataI}:
 						(ExtImm  == 2'b01) ? {{8{dataI[23]}},dataI} : 
-						(ExtImm  == 2'b10) ? {20{dataI[11]},{dataI[11:0]}}:
+						(ExtImm  == 2'b10) ? {{20{dataI[11]}},dataI[11:0]}:
 						(ExtImm  == 2'b11) ? {32{1'b0}}:
+						{32{1'b0}};
+						
 
 	//assign dataO = (~ExtImm) ? {{8'b0},dataI} : {32{1'b1}};
 	

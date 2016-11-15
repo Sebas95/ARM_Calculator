@@ -23,7 +23,7 @@ module Execution(
     input [31:0] RD2,
     input [23:0] Imm,
     input [1:0] ALUSrc,
-    input ImmSrc,
+    input [1:0] ImmSrc,
     input [1:0] ALUControl,
 	 output wire [3:0] ALUFlags,
 	 output wire [31:0] ALUResult
