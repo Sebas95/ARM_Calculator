@@ -101,8 +101,12 @@ module BancoDeRegistros(
 	end
 ////---------------------------------------ESCRITURA----------------------------------------------------------
 	always @(negedge clk ) //se escribe en el flanco positivo de REG_W
+	
+		
+	
 		if(~WE3) //write enable 
 		begin
+			R15<= r15;//siempre se escribe en r15
 			case(A3)//se pregunta cual es la dirección del registro que se requiere
 				4'b0000:		R0<= WD3;
 				4'b0001:		R1<= WD3;
@@ -119,11 +123,12 @@ module BancoDeRegistros(
 				4'b1100:		R12<= WD3;
 				4'b1101:		R13<= WD3;
 				4'b1110:		R14<= WD3;
-				4'b1111:		R15<= r15;
+				//4'b1111:		R15<= r15;
 			endcase
 		end //end del if
 		else     ////  se mantiene el dato igual
 		begin
+			R15<= r15;//siempre se escribe en r15
 			case(A3)
 				4'b0000:		R0<= R0;
 				4'b0001:		R1<= R1;
@@ -140,7 +145,7 @@ module BancoDeRegistros(
 				4'b1100:		R12<= R12;
 				4'b1101:		R13<= R13;
 				4'b1110:		R14<= R14;
-				4'b1111:		R15<= R15;
+				//4'b1111:		R15<= R15;
 			endcase
 
 		end//end del else
