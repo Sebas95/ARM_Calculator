@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Alineador(
-    input [31:0] A,//Variable de entrada
+    input [29:0] A,//Variable de entrada
     output wire [31:0] B//Variable de salida
     );
 	 
