@@ -32,7 +32,8 @@ module MainDecoder(
     );
 	 
 																					                
-	 assign RegW     =  (((Op == 2'b01) & ~(Funct[0])) | (Op == 2'b10) ) ? 1'b0 : 
+	 assign RegW     =  (((Op == 2'b01) & ~(Funct[0])) | (Op == 2'b10)) ? 1'b0 :
+							  ((Op == 2'b00) & (Funct[4:1] == 4'b1010)) ? 1'b0:
 						     1'b1;
 	 
 	 assign MemW     =  ((Op == 2'b01) & ~Funct[0]) ? 1'b1 : 1'b0;

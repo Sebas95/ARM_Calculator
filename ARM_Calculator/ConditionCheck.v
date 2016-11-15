@@ -56,9 +56,9 @@ module ConditionCheck(
 			4'b1101:
 				CondEx <= Flags[2] | (Flags[3] ^ Flags[0]); //Z | (N^V)
 			4'b1110:
-				CondEx <= 1'b0;
+				CondEx <= 1'b1;
 			4'b1111:
-				CondEx <= 1'b0;
+				CondEx <= 1'b1;
 		endcase
 
 

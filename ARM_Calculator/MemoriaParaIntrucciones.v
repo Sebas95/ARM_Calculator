@@ -20,28 +20,24 @@
 //////////////////////////////////////////////////////////////////////////////////
 module MemoriaParaIntrucciones(
 	 input [31:0] address,
-    output [31:0] dataOutput
+    output reg [31:0] dataOutput
     );
 	 
-	localparam ADDR_SIZE = 32;
-	localparam NWORDS = 65536;
-	reg [ADDR_SIZE-1:0] RAM [NWORDS - 1:0];
-		
-	reg [31:0] i = 0;
-	 initial 
-		 begin			 
-			RAM[32'd0]   = 32'd3432;
-			RAM[32'd4]   = 32'd2;
-			RAM[32'd8]   = 32'd47;
-			RAM[32'd12]  = 32'd55;
-			RAM[32'd16]  = 32'd878;		
-			RAM[32'd100] = 32'd100;
-			RAM[32'd104] = 32'd1;
-			RAM[32'd108] = 32'd99;
-			RAM[32'd112]  = 32'd66;
-			RAM[32'd116] = 32'd777;
-		end
-
-	assign dataOutput = RAM[address];
-
+	 always@*
+	 begin
+		case(address)			
+				32'h0: dataOutput = 32'd000111;
+				32'h4: dataOutput = 32'd111222;
+				32'h8: dataOutput = 32'd222333;
+				32'hC: dataOutput = 32'd333333;
+				32'h10: dataOutput = 32'd333444;
+				32'h14: dataOutput = 32'd444555;
+				32'h18: dataOutput = 32'd555666;
+				32'h1C: dataOutput = 32'd666777;
+				32'h20: dataOutput = 32'd777888;
+				32'h24: dataOutput = 32'd888999;
+				32'h28: dataOutput = 32'd999000;	 
+				default: dataOutput = 32'b0;
+		endcase
+	 end
 endmodule
