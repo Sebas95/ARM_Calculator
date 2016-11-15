@@ -20,26 +20,28 @@
 //////////////////////////////////////////////////////////////////////////////////
 module MicroProcessor(
 	input CLK,
-	output wire [31:0]ReadData
-    );
-	 wire PCSrc;
-    wire RegWrite;
-    wire MemWrite;
-	 wire MemtoReg;
-	 wire [1:0]ALUSrc;
-	 wire [1:0]ImmSrc;
-	 wire [1:0]RegSrc;
-	 wire [1:0]ALUControl;
+	output wire [31:0]ReadData,
+	 input wire PCSrc,
+	 input wire MemtoReg,
+    input wire MemWrite,	 
+	 input wire [1:0]ALUControl,
+	 input wire [1:0]ALUSrc,
+	 input wire [1:0]ImmSrc,
+    input wire RegWrite, 
+	 input wire [1:0]RegSrc,
+	 output wire [3:0]ALUFlags
+	 );
+	 
 	 wire [31:0]Result;
 	 wire [31:0]PCPlus4; 
 	 wire [31:0]Instr;
 	 wire [31:0]ALUResult;
 	 
-	 wire [3:0]ALUFlags; 
+
 	 wire [31:0]RD1;
 	 wire [31:0]RD2;
 	 
-	Control_Unit controlUnit(
+	/*Control_Unit controlUnit(
 		 .CLK(CLK),
 		 .Cond(Instr[31:28]),
 		 .ALUFlags(ALUFlags),
@@ -54,7 +56,7 @@ module MicroProcessor(
 		 .ImmSrc(ImmSrc),
 		 .RegSrc(RegSrc),
 		 .ALUControl(ALUControl) 
-    );
+    );*/
 	 
 	 
 	 Fetch fetch(
