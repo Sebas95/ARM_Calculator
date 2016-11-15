@@ -69,7 +69,7 @@ module ControlUnitTest;
 		Op = 0;
 		Funct = 0;
 		Rd = 0;
-
+		/*
 		// Wait 100 ns for global reset to finish
 		//AND R3,R3,#0
 		#10;
@@ -136,8 +136,66 @@ module ControlUnitTest;
 		ALUFlags = 4'b1000;
 		Op = 2'b00;
 		Funct = 6'b000100;
-		Rd = 4'd4;				
+		Rd = 4'd4;			*/	
 		
+		
+		//-----------------Store y load word y branch
+		
+		//STR 
+		/*
+		#10;
+		Cond = 4'b1110;
+		ALUFlags = 4'b0000;
+		Op = 2'b01;
+		Funct = 6'b000000;
+		Rd = 4'd4;		
+		
+		//LDR 
+		
+		#10;
+		Cond = 4'b1110;
+		ALUFlags = 4'b0000;
+		Op = 2'b01;
+		Funct = 6'b000001;
+		Rd = 4'd4;		
+
+		//BNE
+		
+		#10;
+		Cond = 4'b0000;
+		ALUFlags = 4'b0000;
+		Op = 2'b10;
+		Funct = 6'b000000;
+		Rd = 4'd4;			
+		*/
+		//---------------------------------------------
+		
+		
+		//SUBLS(V)
+		#10;
+		
+		Cond = 4'b1110;
+		ALUFlags = 4'b0010;
+		Op = 2'b00;
+		Funct = 6'b010101;
+		Rd = 4'd4;		
+
+		#10;
+		Cond = 4'b1110;
+		ALUFlags = 4'b0000;
+		Op = 2'b00;
+		Funct = 6'b000000;
+		Rd = 4'd4;			
+		
+		//NZCV
+		//SUBLS(F)
+		#10;
+		
+		Cond = 4'b1001;
+		ALUFlags = 4'b1000;
+		Op = 2'b00;
+		Funct = 6'b000100;
+		Rd = 4'd4;	
         
 		// Add stimulus here
 

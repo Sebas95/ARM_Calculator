@@ -126,6 +126,7 @@ module ALUDecoderTest;
 		Funct = 5'b11001;
 		ALUOp = 1;			
         
+		  
 
 	end
       
