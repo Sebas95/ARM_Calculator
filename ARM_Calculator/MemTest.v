@@ -46,35 +46,35 @@ module MemTest;
 	
 	initial begin
 		// Initialize Inputs		
-		ALUResult = 32'd12;
-		WD = 32'd989;
+		ALUResult = 32'hC;
+		WD = 32'd865486;
 		MemWrite = 0;
 		
 
 		// Wait 100 ns for global reset to finish
 		#10;
 		
-		ALUResult = 32'd12;
+		ALUResult = 32'hC;
 		WD = 32'd0;
 		MemWrite = 1;
 				
 		
 		#10;
 		
-		ALUResult = 32'd13;
-		WD = 32'd4554;
-		MemWrite = 1;
+		ALUResult = 32'h3E;
+		WD = 32'd77777;
+		MemWrite = 0;
 		
 		
 		#10;
 		
-		ALUResult = 32'd12;
+		ALUResult = 32'hC;
 		WD = 32'd4554;
 		MemWrite = 1;
 
 		#10;
 		
-		ALUResult = 32'd13;
+		ALUResult = 32'h3E;
 		WD = 32'd4554;
 		MemWrite = 1;
 				

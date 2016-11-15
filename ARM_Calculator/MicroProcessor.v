@@ -31,7 +31,7 @@ module MicroProcessor(
 	 wire [1:0]RegSrc;
 	 wire [1:0]ALUControl;
 	 wire [31:0]Result;
-	 wire [31:0]PCPlus4;
+	 wire [31:0]PCPlus4; 
 	 wire [31:0]Instr;
 	 wire [31:0]ALUResult;
 	 
