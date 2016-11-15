@@ -71,7 +71,7 @@ module MemoriadeDatos(
 					default: RAM_2000 = 32'b0;
 				endcase
 			end
-		/*else
+		else
 			begin
 				case(address)
 					32'h0: RAM_0 = RAM_0;
@@ -93,7 +93,7 @@ module MemoriadeDatos(
 					32'h3E: RAM_64 = RAM_64;
 					default: RAM_2000 = 32'b0;
 				endcase
-			end//end del else*/
+			end//end del else
 	 end //end del always
 	 //Cada posedge dejo salir el dato en el valor de address actual
 	 always@(posedge clk)
