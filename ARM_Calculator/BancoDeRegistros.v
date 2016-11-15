@@ -32,7 +32,7 @@ module BancoDeRegistros(
 	input [3:0]A2,
 	input [3:0]A3,
 	input [31:0]WD3,
-	//input [31:0]r15,
+	input [31:0]r15,
 	//salidas
 	output reg [31:0]RD1,
 	output reg [31:0]RD2
@@ -119,7 +119,7 @@ module BancoDeRegistros(
 				4'b1100:		R12<= WD3;
 				4'b1101:		R13<= WD3;
 				4'b1110:		R14<= WD3;
-				4'b1111:		R15<= WD3;
+				4'b1111:		R15<= r15;
 			endcase
 		end //end del if
 		else     ////  se mantiene el dato igual
