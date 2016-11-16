@@ -40,6 +40,7 @@ module processor_test;
 	wire [1:0] RegSrc;
 	wire [3:0] ALUFlags;
 	wire [31:0] Instr;
+	wire [31:0]ALUResult;
 
 	// Instantiate the Unit Under Test (UUT)
 	SingleCycleuProcessor uut (
@@ -55,7 +56,8 @@ module processor_test;
 		.RegWrite(RegWrite), 
 		.RegSrc(RegSrc), 
 		.ALUFlags(ALUFlags), 
-		.Instr(Instr)
+		.Instr(Instr),
+		.ALUResult(ALUResult)
 	);
 	always #5 CLK=~CLK;
 	initial begin

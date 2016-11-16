@@ -31,7 +31,8 @@ module SingleCycleuProcessor(
 		output wire RegWrite,
 		output wire [1:0]RegSrc,
 		output wire [3:0]ALUFlags,
-		output wire [31:0]Instr
+		output wire [31:0]Instr,
+		output wire [31:0]ALUResult
 	 
     );
 	
@@ -78,7 +79,8 @@ module SingleCycleuProcessor(
 		.ALUFlags(ALUFlags),
 		.Instr(Instr),
 		.ReadData(ReadData),
-		.RD2(RD2)
+		.RD2(RD2),
+		.ALUResult(ALUResult)
 	 );
 	 
 	 
