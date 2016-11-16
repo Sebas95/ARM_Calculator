@@ -19,8 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module MicroProcessor(
-	input CLK,
-	output wire [31:0]ReadData,
+	 input CLK,
 	 input wire PCSrc,
 	 input wire MemtoReg,
     input wire MemWrite,	 
@@ -29,12 +28,13 @@ module MicroProcessor(
 	 input wire [1:0]ImmSrc,
     input wire RegWrite, 
 	 input wire [1:0]RegSrc,
-	 output wire [3:0]ALUFlags
-	 );
+	 output wire [3:0]ALUFlags,
+  	 output wire [31:0]Instr,
+	 output wire [31:0]ReadData
 	 
+	 );
 	 wire [31:0]Result;
 	 wire [31:0]PCPlus4; 
-	 wire [31:0]Instr;
 	 wire [31:0]ALUResult;
 	 
 
