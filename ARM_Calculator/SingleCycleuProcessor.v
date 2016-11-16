@@ -20,10 +20,22 @@
 //////////////////////////////////////////////////////////////////////////////////
 module SingleCycleuProcessor(
 		input CLK,
-		output wire [31:0]ReadData
+		output wire [31:0]ReadData,
+		output wire [31:0]RD2,
+		output wire PCSrc,
+		output wire MemtoReg,
+		output wire MemWrite,	 
+		output wire [1:0]ALUControl,
+		output wire [1:0]ALUSrc,
+		output wire [1:0]ImmSrc,
+		output wire RegWrite,
+		output wire [1:0]RegSrc,
+		output wire [3:0]ALUFlags,
+		output wire [31:0]Instr
+	 
     );
 	
-	 wire PCSrc;
+	 /*wire PCSrc;
 	 wire MemtoReg;
     wire MemWrite;	 
 	 wire [1:0]ALUControl;
@@ -32,7 +44,7 @@ module SingleCycleuProcessor(
     wire RegWrite; 
 	 wire [1:0]RegSrc;
 	 wire [3:0]ALUFlags;
-	 wire [31:0]Instr;
+	 wire [31:0]Instr;*/
 	 
 	Control_Unit control_unit(
 		.CLK(CLK),
@@ -65,7 +77,8 @@ module SingleCycleuProcessor(
 	 //out
 		.ALUFlags(ALUFlags),
 		.Instr(Instr),
-		.ReadData(ReadData)
+		.ReadData(ReadData),
+		.RD2(RD2)
 	 );
 	 
 	 

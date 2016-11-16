@@ -30,7 +30,8 @@ module MicroProcessor(
 	 input wire [1:0]RegSrc,
 	 output wire [3:0]ALUFlags,
   	 output wire [31:0]Instr,
-	 output wire [31:0]ReadData
+	 output wire [31:0]ReadData,
+	 output wire [31:0]RD2
 	 
 	 );
 	 wire [31:0]Result;
@@ -39,7 +40,7 @@ module MicroProcessor(
 	 
 
 	 wire [31:0]RD1;
-	 wire [31:0]RD2;
+	 
 	 
 	/*Control_Unit controlUnit(
 		 .CLK(CLK),
