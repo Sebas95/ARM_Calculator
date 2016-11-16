@@ -25,7 +25,7 @@
 module processor_test;
 
 	// Inputs
-	reg CLK=0;
+	reg CLK;
 
 	// Outputs
 	wire [31:0] ReadData;
@@ -63,8 +63,8 @@ module processor_test;
 	
 
 		// Wait 100 ns for global reset to finish
-		//#100;
-   //     
+		#100;
+      CLK=0; 
 		// Add stimulus here
 
 	end
