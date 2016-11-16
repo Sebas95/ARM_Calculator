@@ -44,9 +44,9 @@ module MainDecoder(
 							  (Op == 2'b10) ? 2'b10 :
 								2'b01;
 	 
-	 assign ImmSrc   =  ((Op == 2'b00) & (Funct[5]))  ? 2'b01 :
-							  ((Op == 2'b01) & (Funct[5])) ?  2'b10:
-							  ((Op == 2'b01) & (~Funct[5])) ?  2'b11:
+	 assign ImmSrc   =  ((Op == 2'b00) & (Funct[5]))  ? 2'b00 :
+							  ((Op == 2'b01) & ~(Funct[5])) ?  2'b10:
+							  ((Op == 2'b01) &  (Funct[5])) ?  2'b11:
 							  (Op == 2'b10) ?  2'b01:
 							  2'b11;
 	 
