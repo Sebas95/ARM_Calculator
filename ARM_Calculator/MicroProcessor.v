@@ -32,7 +32,10 @@ module MicroProcessor(
   	 output wire [31:0]Instr,
 	 output wire [31:0]ReadData,
 	 output wire [31:0]RD2,
-	 output wire [31:0]ALUResult
+	 output wire [31:0]ALUResult,
+	 output wire [31:0] SrcB,
+	 output wire [31:0]RD1,
+	 output wire [3:0] RA1
 	 
 	 );
 	 wire [31:0]Result;
@@ -40,7 +43,7 @@ module MicroProcessor(
 	 
 	 
 
-	 wire [31:0]RD1;
+	 
 	 
 	 
 	/*Control_Unit controlUnit(
@@ -83,7 +86,8 @@ module MicroProcessor(
 		.RegSrc(RegSrc),
 		//out
 		.RD1(RD1),
-		.RD2(RD2)
+		.RD2(RD2),
+		.RA1(RA1)
     );
 	Execution execution(
 		.RD1(RD1),
@@ -94,7 +98,8 @@ module MicroProcessor(
 		.ALUControl(ALUControl),
 		//out
 		.ALUFlags(ALUFlags),
-		.ALUResult(ALUResult)
+		.ALUResult(ALUResult),
+		.SrcB(SrcB)
     ); 
 	 
 	

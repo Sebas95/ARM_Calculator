@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Users/Sebastian/Documents/GitHub/ARM_Calculator/ARM_Calculator/processor_test_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="processor_test" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/processor_test/ReadData" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ReadData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ReadData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/RD2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RD2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD2[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/PCSrc" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">PCSrc</obj_property>
+      <obj_property name="ObjectShortName">PCSrc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/MemtoReg" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MemtoReg</obj_property>
+      <obj_property name="ObjectShortName">MemtoReg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/MemWrite" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MemWrite</obj_property>
+      <obj_property name="ObjectShortName">MemWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/ALUControl" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ALUControl[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUControl[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/ALUSrc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ALUSrc[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUSrc[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/ImmSrc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ImmSrc[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ImmSrc[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/RegWrite" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RegWrite</obj_property>
+      <obj_property name="ObjectShortName">RegWrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/RegSrc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RegSrc[1:0]</obj_property>
+      <obj_property name="ObjectShortName">RegSrc[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/ALUFlags" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ALUFlags[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUFlags[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/Instr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">Instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/ALUResult" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ALUResult[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALUResult[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/SrcB" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">SrcB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">SrcB[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/RD1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RD1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RD1[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/RA1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RA1[3:0]</obj_property>
+      <obj_property name="ObjectShortName">RA1[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/processor_test/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+</wave_config>

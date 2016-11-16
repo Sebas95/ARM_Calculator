@@ -26,12 +26,13 @@ module Execution(
     input [1:0] ImmSrc,
     input [1:0] ALUControl,
 	 output wire [3:0] ALUFlags,
-	 output wire [31:0] ALUResult
+	 output wire [31:0] ALUResult,
+	 output wire [31:0] SrcB
     );
 	 
 	 wire [31:0] ExtImm;
 	 wire [31:0] ExtImmAligned;
-	 wire [31:0] SrcB;
+	 
 	 	 
 	UnidadDeExtension extensionExe(
 		.dataI(Imm),

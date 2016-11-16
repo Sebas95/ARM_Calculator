@@ -28,10 +28,11 @@ module Decode(
     input WE3,
     input [1:0] RegSrc,
 	 output wire [31:0] RD1,
-	 output wire [31:0] RD2
+	 output wire [31:0] RD2,
+	 output wire [3:0] RA1
     );
 	 
-	 wire [3:0] RA1;
+	
 	 wire [3:0] RA2;
 	 wire [31:0] PCPlus8;
 	 
