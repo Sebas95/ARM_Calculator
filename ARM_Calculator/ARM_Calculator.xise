@@ -211,6 +211,7 @@
       <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="96"/>
       <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="96"/>
     </file>
+<<<<<<< HEAD
     <file xil_pn:name="font_rom.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="59"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="5"/>
@@ -280,6 +281,13 @@
     <file xil_pn:name="NumberMemory.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="114"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+=======
+    <file xil_pn:name="banco_test.v" xil_pn:type="FILE_VERILOG">
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
+      <association xil_pn:name="PostMapSimulation" xil_pn:seqID="75"/>
+      <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="75"/>
+      <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="75"/>
+>>>>>>> origin/master
     </file>
   </files>
 
