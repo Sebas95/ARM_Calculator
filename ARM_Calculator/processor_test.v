@@ -28,7 +28,7 @@ module processor_test;
 	reg CLK;
 
 	// Outputs
-	wire [31:0] ReadData;
+	//wire [31:0] ReadData;
 	wire [31:0] RD2;
 	wire PCSrc;
 	wire MemtoReg;
@@ -44,11 +44,12 @@ module processor_test;
 	wire [31:0] SrcB;
 	wire [31:0]RD1;
 	wire [3:0]RA1;
+	wire [31:0]Result;
 
 	// Instantiate the Unit Under Test (UUT)
 	SingleCycleuProcessor uut (
 		.CLK(CLK), 
-		.ReadData(ReadData), 
+	//	.ReadData(ReadData), 
 		.RD2(RD2), 
 		.PCSrc(PCSrc), 
 		.MemtoReg(MemtoReg), 
@@ -63,16 +64,28 @@ module processor_test;
 		.ALUResult(ALUResult),
 		.SrcB(SrcB),
 		.RD1(RD1),
-		.RA1(RA1)
+		.RA1(RA1),
+		.Result(Result)
 	);
-	always #5 CLK=~CLK;
+	integer x =1;
+	//always #50 CLK=~CLK;
 	initial begin
 		// Initialize Inputs
 	
 
 		// Wait 100 ns for global reset to finish
+		
+      CLK=0;
 		#100;
-      CLK=0; 
+
+		for(x=1 ; x<111 ; x =x+1)
+		begin
+		CLK=1;
+		#5;
+		CLK=0;
+		#5;
+		
+		end
 		// Add stimulus here
 
 	end

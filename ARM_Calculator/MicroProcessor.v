@@ -35,10 +35,11 @@ module MicroProcessor(
 	 output wire [31:0]ALUResult,
 	 output wire [31:0] SrcB,
 	 output wire [31:0]RD1,
-	 output wire [3:0] RA1
+	 output wire [3:0] RA1,
+	 output wire [31:0]Result
 	 
 	 );
-	 wire [31:0]Result;
+
 	 wire [31:0]PCPlus4; 
 	 
 	 
