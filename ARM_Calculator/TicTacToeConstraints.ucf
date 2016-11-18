@@ -1,0 +1,46 @@
+NET "CLK_100MHZ" LOC = V10;
+NET "CLK_100MHZ" PERIOD = 20.0ns HIGH 40%;
+
+NET "rgb[2]" LOC = U7;
+NET "rgb[2]" LOC = V7;
+NET "rgb[2]" LOC = N7;
+
+NET "rgb[1]" LOC = P8;
+NET "rgb[1]" LOC = T6;
+NET "rgb[1]" LOC = V6;
+
+NET "rgb[0]" LOC = R7;
+NET "rgb[0]" LOC = T7;
+
+NET "hsync" LOC = N6;     
+NET "vsync" LOC = P7;
+
+
+NET "center" CLOCK_DEDICATED_ROUTE = FALSE; 
+NET "down" CLOCK_DEDICATED_ROUTE = FALSE; 
+NET "left" CLOCK_DEDICATED_ROUTE = FALSE; 
+NET "right" CLOCK_DEDICATED_ROUTE = FALSE; 
+
+NET "center"  LOC = B8;
+NET "down" LOC = C9;
+NET "left"  LOC = C4;
+NET "right" LOC = D9;
+
+NET "ps2d" LOC= K14 | PULLUP;
+NET "ps2c" LOC= L13 | PULLUP;
+
+
+NET "clickedMatrix[8]" LOC = T11;
+NET "clickedMatrix[6]" LOC = R11;
+NET "clickedMatrix[5]" LOC = N11;
+NET "clickedMatrix[4]" LOC = M11;
+NET "clickedMatrix[3]" LOC = V15;
+NET "clickedMatrix[2]" LOC = U15;
+NET "restart_on" LOC = V16;
+NET "erase_on" LOC = U16;
+
+//NET "btn[0]" LOC = U16;
+
+
+
+
