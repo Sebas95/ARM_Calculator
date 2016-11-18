@@ -30,12 +30,15 @@ module Calculator(
 	wire [9:0] xm;
 	wire [8:0] ym;
 	wire [2:0] btn;
+	
+	wire [39:0] numActual;
+	wire [3:0] counterTotal;
 	 
-/*NumberMemory(
-    .clk(),
-    .numActual(),
-	 .counterTotal()
-    );*/
+	NumberMemory memoriaNumeros(
+		.clk(CLK_100MHZ),
+		.numActual(numActual),
+		.counterTotal(counterTotal)
+    );
 
 
    mouseController mouseC
@@ -48,7 +51,9 @@ module Calculator(
 	.vsync(vsync),
    .rgb(rgb),
 	.xm(xm),
-	.ym(ym)
+	.ym(ym),	
+	.numActual(numActual),
+	.counterTotal(counterTotal)	
 	);
 	
    clickedSquare(

@@ -30,9 +30,9 @@ module MakeNumber(
 	reg [4:0] numMemory [15:0];
 	reg [4:0] counter =  4'd0;
 	reg [4:0] counterAux = 4'b0;
-	always@(posedge get)
+	/*always@(posedge get)
 		numMemory[counter] <= digit;
-		counter = counter +1;
+		counter = counter +1;*/
 	/*always@(posedge save)
 		if(~complemento)*/
 			

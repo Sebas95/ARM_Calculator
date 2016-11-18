@@ -41,6 +41,8 @@
 module VgaPainter(
 	input wire clk_100MHz,
 	input wire [9:0] xm, ym,	
+	 input wire [3:0] counterTotal,
+	input wire [39:0] numActual,	
 	output wire hsync, vsync,
 	output wire [2:0] rgb,
 	output wire video_on,
@@ -83,7 +85,7 @@ module VgaPainter(
    CalculatorPainter text_unit
       (
 		 .clk(clk_100MHz),
-		 .clk1Hz(clk1Hz),
+		 .clk100Hz(clk_100MHz),
        .pix_x(pixel_x), 
 		 .pix_y(pixel_y),
 		 .font_word(font_word),
@@ -92,7 +94,9 @@ module VgaPainter(
 		 .text_rgb(rgb),
 		 .rom_addr(rom_addr),
 		 .xm(xm),
-		 .ym(ym)
+		 .ym(ym),
+		 .numActual(numActual),
+		 .counterTotal(counterTotal)		 
 	);
 	
 endmodule

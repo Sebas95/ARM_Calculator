@@ -20,14 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 module StateMachineCalculator(
     input clk,
-    input [3:0] clickedMatrix,
 	 input rec_op,
 	 input rec_num,
-	 input finishSave,
-    output [3:0] num1,
-    output [3:0] num2,
-    output [3:0] op,
-	 output save,
+	 output reg guardeNum,
+	 output reg leaResult
     );
 	 
 	 localparam INICIO = 3'd0;
@@ -38,7 +34,7 @@ module StateMachineCalculator(
 	 
 	 reg [2:0] state = 3'b0;
 	 reg [2:0] nextState = 3'b0;
-	 
+	 //-----------------Logica de estados
 	 always @*
 			case(state)
 				INICIO:
@@ -50,27 +46,16 @@ module StateMachineCalculator(
 						if(rec_num)
 							nextState <= GET_1ST_NUMBER;
 						else if(rec_op)
-							nextState <= SAVE_NUMBER;
-					end
-				SAVE_NUMBER:
-					begin
-						if(have2)
-							if(finishSave)
-								nextState <= FIN;
-							else 
-								nextState <= SAVE_NUMBER;							
+							nextState <= GET_2ND_NUMBER;
 						else
-							if(finishSave)
-								nextState <= GET_2ND_NUMBER;
-							else 
-								nextState <= SAVE_NUMBER;
+							nextState <= GET_1ST_NUMBER;
 					end
 				GET_2ND_NUMBER:
 					begin
 						if(rec_num)
 							nextState <= GET_2ND_NUMBER;
 						else if(rec_op)
-							nextState <= SAVE_NUMBER;
+							nextState <= FIN;
 						else
 							nextState <= GET_2ND_NUMBER;
 					end
@@ -81,26 +66,55 @@ module StateMachineCalculator(
 						else 
 							nextState <= FIN;						
 					end
+				default: nextState <= INICIO;						
 			endcase
-		
+	//----------------Logica de salida
 	always @*	
 			case(state)
 				INICIO:
 					begin
+						guardeNum = 0;
+						leaResult = 0;					
 					end
 				GET_1ST_NUMBER:
 					begin
-					end
-				SAVE_NUMBER:
-					begin
+					if(rec_op)
+						begin
+							guardeNum = 1;
+							leaResult = 0;
+						end
+					else
+						begin
+							guardeNum = 0;
+							leaResult = 0;
+						end
 					end
 				GET_2ND_NUMBER:
 					begin
+					if(rec_op)
+						begin
+							guardeNum = 1;
+							leaResult = 0;
+						end
+					else
+						begin
+							guardeNum = 0;
+							leaResult = 0;
+						end
 					end
 				FIN:
 					begin 
+						guardeNum = 0;
+						leaResult = 1;
 					end			
+				default: 
+					begin
+						guardeNum = 0;
+						leaResult = 0;
+					end
 		endcase
 
+	always @(posedge clk)
+		state = nextState;
 
 endmodule

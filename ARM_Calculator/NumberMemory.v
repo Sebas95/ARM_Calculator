@@ -20,10 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 module NumberMemory(
     input clk,
-    output reg [3:0] numActual,
-	 output reg [2:0] counterTotal = 7
+    output reg [39:0] numActual,
+	 output reg [3:0] counterTotal = 9
     );
+	 
 	 reg [2:0] counter = 4'd0;
+	 
 	 
 	 	//devisor de frecuencia pra el controlador VGA
 	reg clk_50MHz = 0;
@@ -31,19 +33,22 @@ module NumberMemory(
 		clk_50MHz<= ~clk_50MHz; 
 	 
 	 always@*
-	 begin                                            
-		case(counter)
+	 begin      
+		numActual = 39'd43534677;
+		/*case(counter)
 				4'd0:   numActual = 4'd9;
-				4'd1:   numActual = 4'd9;
-				4'd2:   numActual = 4'd9;
-				4'd3:   numActual = 4'd9;
-				4'd4:   numActual = 4'd9;
-				4'd5:   numActual = 4'd9;
-				4'd6:   numActual = 4'd9;
-				4'd7:   numActual = 4'd9;
+				4'd1:   numActual = 4'd8;
+				4'd2:   numActual = 4'd7;
+				4'd3:   numActual = 4'd6;
+				4'd4:   numActual = 4'd5;
+				4'd5:   numActual = 4'd4;
+				4'd6:   numActual = 4'd3;
+				4'd7:   numActual = 4'd2;
 				default: numActual = 32'b0;
-		endcase
+		endcase*/
 	 end	 
+	 
+	 
 	 
 	 always @(posedge clk_50MHz)
 	 if(~(counterTotal == counter))

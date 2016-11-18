@@ -2,8 +2,10 @@
 module CalculatorPainter
    (
     input wire  clk, 
-	 input wire  clk1Hz, 
+	 input wire  clk100Hz, 
 	 input wire ceSS,
+	 input wire [3:0] counterTotal,
+	 input wire [39:0] numActual,
     input wire [9:0] pix_x, pix_y,
 	 input wire [7:0] font_word,
 	 input wire pixel_tick,	 
@@ -12,6 +14,8 @@ module CalculatorPainter
     output reg  [2:0] text_rgb =0,
 	 output wire [10:0] rom_addr
    );
+
+	
 
    // signal declaration---------------------------------------------------------------------
 	
@@ -262,12 +266,51 @@ module CalculatorPainter
 	assign sub_on = (pix_y[9:6]== X_O_LOCATION + X_O_SEPARATION ) && (pix_x[9:5]==14);	
 	assign equal_on = (pix_y[9:6]== X_O_LOCATION + 2*X_O_SEPARATION ) && (pix_x[9:5]==14);
 	
+
+	
+	wire num_on,num_on1,num_on2,num_on3,num_on4,num_on5,num_on6,num_on7,num_on8,
+		num_on9,num_on10;
+	localparam firstNum = 14;
+
+	assign num_on1 = (pix_y[9:6]== 1) && (pix_x[9:5]==firstNum);
+	assign num_on2 = (pix_y[9:6]== 1) && (pix_x[9:5]==firstNum - 1);
+	assign num_on3 = (pix_y[9:6]== 1) && (pix_x[9:5]==firstNum - 2);
+	assign num_on4 = (pix_y[9:6]== 1) && (pix_x[9:5]==firstNum - 3);
+	assign num_on5 = (pix_y[9:6]== 1) && (pix_x[9:5]==firstNum - 4);
+	assign num_on6 = (pix_y[9:6]== 1) && (pix_x[9:5]==firstNum - 5);
+	assign num_on7 = (pix_y[9:6]== 1) && (pix_x[9:5]==firstNum - 6);
+	assign num_on8 = (pix_y[9:6]== 1) && (pix_x[9:5]==firstNum - 7);
+	assign num_on9 = (pix_y[9:6]== 1) && (pix_x[9:5]==firstNum - 8);
+	assign num_on10 = (pix_y[9:6]== 1) && (pix_x[9:5]==firstNum - 9);
+	
+	assign num_on = num_on1 || num_on2 || num_on3 || num_on4 || num_on5 || num_on6 ||
+				num_on7 || num_on8 || num_on9 || num_on10;
 	
 	//Decido si pintar X o Y
    always @*
 		begin
-			char_addr_xo1 = 7'h0;
+			char_addr_xo1 = 11'b0;
 			//CUADRO ARRIBA IZQUIERDA
+			if(num_on1 && (counterTotal > 0) )
+					char_addr_xo1 = {3'b011,numActual[3:0]};
+			if(num_on2 && (counterTotal > 1))
+					char_addr_xo1 = {3'b011,numActual[7:4]};
+			if(num_on3 && (counterTotal > 2))
+					char_addr_xo1 = {3'b011,numActual[11:8]};
+			if(num_on4 && (counterTotal > 3))
+					char_addr_xo1 = {3'b011,numActual[15:12]};
+			if(num_on5 && (counterTotal > 4))
+					char_addr_xo1 = {3'b011,numActual[19:16]};
+			if(num_on6 && (counterTotal > 5))
+					char_addr_xo1 = {3'b011,numActual[23:20]};
+			if(num_on7 && (counterTotal > 6))
+					char_addr_xo1 = {3'b011,numActual[27:24]};	
+			if(num_on8 && (counterTotal > 7))
+					char_addr_xo1 = {3'b011,numActual[31:28]};	
+			if(num_on9 && (counterTotal > 8))
+					char_addr_xo1 = {3'b011,numActual[35:32]};	
+			if(num_on10 && (counterTotal > 9))
+					char_addr_xo1 = {3'b011,numActual[39:36]};					
 			if(xo0_on)
 					char_addr_xo1 = 11'h30;
 			//CUADRO ARRIBA CENTRO
@@ -438,7 +481,7 @@ module CalculatorPainter
 						text_rgb = PINK;
 					else if(xo9_on || xo8_on || xo7_on || xo6_on || xo5_on || xo4_on || xo3_on || 
 									xo2_on || xo1_on || xo0_on || mult_on || sum_on || div_on || sub_on
-										||equal_on)
+										||equal_on || num_on)
 						begin
 							char_addr = char_addr_xo1;
 							row_addr = row_addr_xo1;
@@ -456,7 +499,7 @@ module CalculatorPainter
 	
 
 
-   assign text_on = { xo9_on,xo8_on, mouse_on, xo7_on, xo6_on,xo5_on,xo4_on, xo3_on,xo2_on,xo1_on, xo0_on,
+   assign text_on = {num_on, xo9_on,xo8_on, mouse_on, xo7_on, xo6_on,xo5_on,xo4_on, xo3_on,xo2_on,xo1_on, xo0_on,
 								 bar_left_on, bar_right_on, bar_up_on, bar_down_on,bar_down2_on,
 								 bar_up0_on,bar_left0_on,bar_right2_on,
 								 mult_on,div_on,sum_on,sub_on,equal_on,bar_right4_on,bar_right3_on,
