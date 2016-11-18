@@ -47,25 +47,51 @@ module testMachine;
 		rec_op = 0;
 		rec_num = 0;
 		// Wait 100 ns for global reset to finish
-		#10;
+		#20;
 		
 		rec_op = 0;
 		rec_num = 1;		
 		
-		#10;
+		#20;
 		
 		rec_op = 0;
 		rec_num = 1;
 
-		#10;
+		#20;
 		
 		rec_op = 0;
 		rec_num = 1;
 
-		#10;
+		#20;
 		
 		rec_op = 1;
 		rec_num = 0;		
+		
+		#20;
+		
+		rec_op = 0;
+		rec_num = 0;	
+
+		#20;
+		
+		rec_op = 1;
+		rec_num = 0;			
+		
+		#20;
+		
+		rec_op = 0;
+		rec_num = 0;	
+
+		#20;
+		
+		rec_op = 1;
+		rec_num = 0;	
+
+		#20;
+		
+		rec_op = 0;
+		rec_num = 0;	
+		
         
 		// Add stimulus here
 

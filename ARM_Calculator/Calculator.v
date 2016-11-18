@@ -23,8 +23,8 @@ module Calculator(
 	input wire reset,
 	inout wire ps2d, ps2c,
 	output wire hsync, vsync,
-   output wire [2:0] rgb,
-	output wire [4:0] clickedMatrix
+   output wire [2:0] rgb
+	//output wire leaResult
     );
 	 
 	wire [9:0] xm;
@@ -33,11 +33,21 @@ module Calculator(
 	
 	wire [39:0] numActual;
 	wire [3:0] counterTotal;
+
+	wire newOp;
+	
+	//wire leaResult;
+	wire guardeNum;
+	wire newDigit;
+	wire [3:0] digit;
 	 
 	NumberMemory memoriaNumeros(
 		.clk(CLK_100MHZ),
 		.numActual(numActual),
-		.counterTotal(counterTotal)
+		.newDigit(newDigit),
+		.counterTotal(counterTotal),
+		.saveNumber(guardeNum),
+		.digit(digit)
     );
 
 
@@ -60,7 +70,17 @@ module Calculator(
     .clicked(btn[0]),
     .Xlocation(xm),
     .Ylocation(ym),
-    .clickedMatrix(clickedMatrix)
-    );	
+    .clickedMatrix(digit),
+	 .newDigit(newDigit),
+	 .newOp(newOp)
+    );
+	 
+	 StateMachineCalculator maquinaEstados(
+    .clk(CLK_100MHZ),
+	 .rec_op(newOp),
+	 .rec_num(newDigit),
+	 .guardeNum(guardeNum),
+	 .leaResult(leaResult)
+    );
 
 endmodule

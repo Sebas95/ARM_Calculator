@@ -19,10 +19,10 @@ NET "vsync" LOC = P7;
 NET "ps2d" LOC= K14 | PULLUP;
 NET "ps2c" LOC= L13 | PULLUP;
 
-NET "clickedMatrix[0]"  LOC = U16;
-NET "clickedMatrix[1]"  LOC = V16;
-NET "clickedMatrix[2]"  LOC = U15;
-NET "clickedMatrix[3]"  LOC = V15;
+//NET "leaResult"  LOC = U16;
+//NET "clickedMatrix[1]"  LOC = V16;
+//NET "clickedMatrix[2]"  LOC = U15;
+//NET "clickedMatrix[3]"  LOC = V15;
 
 
 

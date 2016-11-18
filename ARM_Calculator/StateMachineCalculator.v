@@ -32,6 +32,9 @@ module StateMachineCalculator(
 	 localparam GET_2ND_NUMBER = 3'd3;
 	 localparam FIN = 3'd4;
 	 
+	reg entro = 1'b0;
+
+	 
 	 reg [2:0] state = 3'b0;
 	 reg [2:0] nextState = 3'b0;
 	 //-----------------Logica de estados
@@ -39,34 +42,34 @@ module StateMachineCalculator(
 			case(state)
 				INICIO:
 					begin
-						nextState <= GET_1ST_NUMBER;
+						nextState = GET_1ST_NUMBER;
 					end
 				GET_1ST_NUMBER:
 					begin
 						if(rec_num)
-							nextState <= GET_1ST_NUMBER;
-						else if(rec_op)
-							nextState <= GET_2ND_NUMBER;
+							nextState = GET_1ST_NUMBER;
+						else if(rec_op && ~entro)
+							nextState = GET_2ND_NUMBER;
 						else
-							nextState <= GET_1ST_NUMBER;
+							nextState = GET_1ST_NUMBER;
 					end
 				GET_2ND_NUMBER:
 					begin
 						if(rec_num)
-							nextState <= GET_2ND_NUMBER;
-						else if(rec_op)
-							nextState <= FIN;
+							nextState = GET_2ND_NUMBER;
+						else if(rec_op && ~entro)
+							nextState = FIN;
 						else
-							nextState <= GET_2ND_NUMBER;
+							nextState = GET_2ND_NUMBER;
 					end
 				FIN:
 					begin 
-						if(rec_num | rec_op)
-							nextState <= INICIO;
+						if((rec_num | rec_op)&~entro) 
+							nextState = INICIO;
 						else 
-							nextState <= FIN;						
+							nextState = FIN;						
 					end
-				default: nextState <= INICIO;						
+				default: nextState = INICIO;						
 			endcase
 	//----------------Logica de salida
 	always @*	
@@ -78,7 +81,7 @@ module StateMachineCalculator(
 					end
 				GET_1ST_NUMBER:
 					begin
-					if(rec_op)
+					if(rec_op & ~entro)
 						begin
 							guardeNum = 1;
 							leaResult = 0;
@@ -91,7 +94,7 @@ module StateMachineCalculator(
 					end
 				GET_2ND_NUMBER:
 					begin
-					if(rec_op)
+					if(rec_op & ~entro)
 						begin
 							guardeNum = 1;
 							leaResult = 0;
@@ -114,7 +117,18 @@ module StateMachineCalculator(
 					end
 		endcase
 
-	always @(posedge clk)
-		state = nextState;
+		
+	
+	always @(posedge clk)	
+		if(rec_op)
+			begin
+				state <= nextState;
+				entro <= 1;
+			end
+		else
+			begin
+				state <= nextState;
+				entro <= 0;
+			end		
 
 endmodule
