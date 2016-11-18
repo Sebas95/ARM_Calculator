@@ -36,7 +36,7 @@ module Decode(
 	 wire [3:0] RA2;
 	 wire [31:0] PCPlus8;
 	 
-	BancoDeRegistros registrosDecode(
+	Banco registrosDecode(
 		.clk(clk),
 		.WE3(WE3),
 		.A1(RA1),

@@ -30,7 +30,7 @@ module MicroProcessor(
 	 input wire [1:0]RegSrc,
 	 output wire [3:0]ALUFlags,
   	 output wire [31:0]Instr,
-	 output wire [31:0]ReadData,
+	// output ,
 	 output wire [31:0]RD2,
 	 output wire [31:0]ALUResult,
 	 output wire [31:0] SrcB,
@@ -41,7 +41,7 @@ module MicroProcessor(
 	 );
 
 	 wire [31:0]PCPlus4; 
-	 
+	 wire [31:0]ReadData;
 	 
 
 	 

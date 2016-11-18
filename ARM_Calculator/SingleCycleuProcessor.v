@@ -73,7 +73,7 @@ module SingleCycleuProcessor(
 	 //out
 		.ALUFlags(ALUFlags),
 		.Instr(Instr),
-		.ReadData(ReadData),
+		//.ReadData(ReadData),
 		.RD2(RD2),
 		.ALUResult(ALUResult),
 		.SrcB(SrcB),
