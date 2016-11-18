@@ -23,8 +23,8 @@ module Calculator(
 	input wire reset,
 	inout wire ps2d, ps2c,
 	output wire hsync, vsync,
-   output wire [2:0] rgb
-	//output wire leaResult
+   output wire [2:0] rgb,
+	output wire leaResult
     );
 	 
 	wire [9:0] xm;
