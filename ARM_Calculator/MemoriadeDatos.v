@@ -23,78 +23,30 @@ module MemoriadeDatos(
     input writeEnable,
     input [31:0] dataInput,
 	 input [31:0] address,
-    output reg [31:0] dataOutput
+    output wire [31:0] dataOutput
     );
-	 	 
-	 reg [31:0] RAM_0 = 32'b0;
-	 reg [31:0] RAM_4 = 32'b0;
-	 reg [31:0] RAM_8 = 32'b0;
-	 reg [31:0] RAM_12 = 32'b0;
-	 reg [31:0] RAM_16 = 32'b0;
-	 reg [31:0] RAM_20 = 32'b0;
-	 reg [31:0] RAM_24_ = 32'b0;
-	 reg [31:0] RAM_28 = 32'b0;
-	 reg [31:0] RAM_32 = 32'b0;
-	 reg [31:0] RAM_36 = 32'b0;
-	 reg [31:0] RAM_40 = 32'b0;
-	 reg [31:0] RAM_44 = 32'b0;
-	 reg [31:0] RAM_48 = 32'b0;
-	 reg [31:0] RAM_52 = 32'b0;
-	 reg [31:0] RAM_56 = 32'b0;
-	 reg [31:0] RAM_60 = 32'b0;
-	 reg [31:0] RAM_64 = 32'b0;
-	 reg [31:0] RAM_2000 = 32'b0;
-	 
-	 //Cada negedge si el writeEnlable está activo entonces escribe el dato
-	 always@(posedge clk)
-	 begin
-		if(~writeEnable)
-			begin
-				case(address)
-					32'h0: RAM_0 = dataInput;
-					32'h4: RAM_4 = dataInput;
-					32'h8: RAM_8 = dataInput;
-					32'hC: RAM_12 = dataInput;
-					32'h10: RAM_16 = dataInput;
-					32'h14: RAM_20 = dataInput;
-					32'h18: RAM_24_ = dataInput;
-					32'h1C: RAM_28 = dataInput;
-					32'h20: RAM_32 = dataInput;
-					32'h24: RAM_36 = dataInput;
-					32'h28: RAM_40 = dataInput;
-					32'h2C: RAM_44 = dataInput;
-					32'h30: RAM_48 = dataInput;
-					32'h34: RAM_52 = dataInput;
-					32'h38: RAM_56 = dataInput;
-					32'h3C: RAM_60 = dataInput;
-					32'h40: RAM_64 = dataInput;
-					default: RAM_2000 = 32'b0;
-				endcase
-			end
-		
-	 end //end del always
-	 //Cada posedge dejo salir el dato en el valor de address actual
-	 always@(posedge clk)
-			begin
-				case(address)
-					32'h0: dataOutput = RAM_0;
-					32'h4: dataOutput = RAM_4;
-					32'h8: dataOutput = RAM_8;
-					32'hC: dataOutput = RAM_12;
-					32'h10: dataOutput = RAM_16;
-					32'h14: dataOutput = RAM_20;
-					32'h18: dataOutput = RAM_24_;
-					32'h1C: dataOutput = RAM_28;
-					32'h20: dataOutput = RAM_32;
-					32'h24: dataOutput = RAM_36;
-					32'h28: dataOutput = RAM_40;
-					32'h2C: dataOutput = RAM_44;
-					32'h30: dataOutput = RAM_48;
-					32'h34: dataOutput = RAM_52;
-					32'h38: dataOutput = RAM_56;
-					32'h3C: dataOutput = RAM_60;
-					32'h40: dataOutput = RAM_64;
-					default: dataOutput = 32'b0;
-				endcase
-			end
+	
+	wire [15:0]CE;
+	
+	DecoHexa deco(
+			.S(address),
+			.Y(CE)
+    );
+	
+	Ram32bits ram0(.clk(clk),.CE(CE[0]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram1(.clk(clk),.CE(CE[1]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram2(.clk(clk),.CE(CE[2]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram3(.clk(clk),.CE(CE[3]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram4(.clk(clk),.CE(CE[4]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram5(.clk(clk),.CE(CE[5]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram6(.clk(clk),.CE(CE[6]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram7(.clk(clk),.CE(CE[7]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram8(.clk(clk),.CE(CE[8]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram9(.clk(clk),.CE(CE[9]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram10(.clk(clk),.CE(CE[10]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram11(.clk(clk),.CE(CE[11]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram12(.clk(clk),.CE(CE[12]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram13(.clk(clk),.CE(CE[13]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram14(.clk(clk),.CE(CE[14]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
+	Ram32bits ram15(.clk(clk),.CE(CE[15]),	.WE(~writeEnable),.Di(dataInput),.Do(dataOutput) );
 endmodule
