@@ -55,7 +55,7 @@
     </file>
     <file xil_pn:name="Mux.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="14"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="14"/>
     </file>
     <file xil_pn:name="Alineador.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="22"/>
@@ -241,7 +241,7 @@
     </file>
     <file xil_pn:name="Calculator.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="16"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="17"/>
     </file>
     <file xil_pn:name="NumberMemory.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
@@ -253,7 +253,7 @@
     </file>
     <file xil_pn:name="mouseController.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="14"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="15"/>
     </file>
     <file xil_pn:name="MousePosition.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
@@ -285,7 +285,7 @@
     </file>
     <file xil_pn:name="clickedSquare.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="15"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="16"/>
     </file>
     <file xil_pn:name="StateMachineCalculator.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>

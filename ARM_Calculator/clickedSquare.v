@@ -98,25 +98,25 @@ module clickedSquare(
 	//Cuadro + Cod: 1010
 		else if(clicked && (Xlocation > NUMERAL_X + 3*ANCHOCASILLAS) && (Xlocation < NUMERAL_X + 4*ANCHOCASILLAS) 
 				&& (Ylocation > NUMERAL_Y + ANCHOCASILLAS) && (Ylocation < NUMERAL_Y + 2*ANCHOCASILLAS))
-			begin clickedMatrix = 4'd10;
+			begin clickedMatrix = 4'd2;
 			newDigit = 1'b0;			
 			newOp = 1'b1;end
 	//Cuadro - Cod: 1011
 		else if(clicked && (Xlocation > NUMERAL_X + 4*ANCHOCASILLAS) && (Xlocation < NUMERAL_X + 5*ANCHOCASILLAS) 
 				&& (Ylocation > NUMERAL_Y + ANCHOCASILLAS) && (Ylocation < NUMERAL_Y + 2*ANCHOCASILLAS))
-			begin clickedMatrix = 4'd11;		
+			begin clickedMatrix = 4'd3;		
 			newDigit = 1'b0;			
 			newOp = 1'b1;end
 	//Cuadro * Cod:1100
 		else if(clicked && (Xlocation > NUMERAL_X + 3*ANCHOCASILLAS) && (Xlocation < NUMERAL_X + 4*ANCHOCASILLAS) 
 				&& (Ylocation > NUMERAL_Y) && (Ylocation < NUMERAL_Y + ANCHOCASILLAS))
-			begin clickedMatrix = 4'd12;
+			begin clickedMatrix = 4'd1;
 			newDigit = 1'b0;			
 			newOp = 1'b1; end
 	//Cuadro / Cod:1101
 		else if(clicked && (Xlocation > NUMERAL_X + 4*ANCHOCASILLAS) && (Xlocation < NUMERAL_X + 5*ANCHOCASILLAS) 
 				&& (Ylocation > NUMERAL_Y) && (Ylocation < NUMERAL_Y + ANCHOCASILLAS))
-			begin clickedMatrix = 4'd13;	
+			begin clickedMatrix = 4'd4;	
 			newDigit = 1'b0;
 			newOp = 1'b1; end
 	//Cuadro = Cod

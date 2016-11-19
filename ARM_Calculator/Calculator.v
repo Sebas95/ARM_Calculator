@@ -24,22 +24,34 @@ module Calculator(
 	inout wire ps2d, ps2c,
 	output wire hsync, vsync,
    output wire [2:0] rgb,
-	output wire leaResult
+	output wire leaResult,
+	output wire [32:0] numAGuardar,
+	output wire [32:0] address,
+	output wire WE
     );
 	 
 	wire [9:0] xm;
 	wire [8:0] ym;
 	wire [2:0] btn;
-	
+	wire reg_op = {{28{1'b0}},digit};
 	wire [39:0] numActual;
 	wire [3:0] counterTotal;
-
+	
+	wire guardeOpProcessor;
 	wire newOp;
 	
 	//wire leaResult;
 	wire guardeNum;
 	wire newDigit;
 	wire [3:0] digit;
+	wire guardeNumProcessor;
+	assign WE = guardeOpProcessor || guardeNumProcessor;
+	
+	 Mux muxWriteBack(
+		 .A(reg_op),	//Entrada 0 de 32 bits
+		 .B(numActual),		//Entrada 1 de 32 bits
+		 .S(guardeOpProcessor),		//Entrada de seleccion de 1 bit
+		 .Y(numAGuardar)	   );   //Salida de data seleccionada de 32 bits
 	 
 	NumberMemory memoriaNumeros(
 		.clk(CLK_100MHZ),
@@ -81,7 +93,10 @@ module Calculator(
 	 .rec_op(newOp),
 	 .rec_num(newDigit),
 	 .guardeNum(guardeNum),
-	 .leaResult(leaResult)
+	 .leaResult(leaResult),
+	 .guardeNumProcessor(guardeNumProcessor),
+	 .guardeOpProcessor(guardeOpProcessor),
+	 .address(address)	 
     );
 
 endmodule
