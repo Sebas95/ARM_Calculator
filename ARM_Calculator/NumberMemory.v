@@ -35,7 +35,7 @@ module NumberMemory(
 				begin
 				//Aqui se manda el dato
 					if(leaResultado) begin
-						numActual = 40'b1000_0010_1001;
+						numActual = 40'b1100_1110_1001;
 						counterTotal = 4'd3; end
 					else begin
 						numActual = 40'b0;

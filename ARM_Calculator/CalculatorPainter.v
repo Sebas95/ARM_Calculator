@@ -347,9 +347,9 @@ module CalculatorPainter
 			if(sum_on)
 					char_addr_xo1 = 11'h2b;
 			if(sub_on)
-					char_addr_xo1 = 11'h2d;		
+					char_addr_xo1 = 11'h2d;
 			if(equal_on)
-					char_addr_xo1 = 11'h3d;		
+					char_addr_xo1 = 11'h40;
 					
 		end		
   
