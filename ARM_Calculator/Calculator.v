@@ -45,6 +45,7 @@ module Calculator(
 		.clk(CLK_100MHZ),
 		.numActual(numActual),
 		.newDigit(newDigit),
+		.leaResultado(leaResult),
 		.counterTotal(counterTotal),
 		.saveNumber(guardeNum),
 		.digit(digit)
@@ -66,8 +67,8 @@ module Calculator(
 	.counterTotal(counterTotal)	
 	);
 	
-   clickedSquare(
-    .clicked(btn[0]),
+   clickedSquare clickedSquare(
+    .clicked(btn),
     .Xlocation(xm),
     .Ylocation(ym),
     .clickedMatrix(digit),

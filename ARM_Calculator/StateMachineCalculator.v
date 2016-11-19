@@ -64,7 +64,7 @@ module StateMachineCalculator(
 					end
 				FIN:
 					begin 
-						if((rec_num | rec_op)&~entro) 
+						if(rec_op & ~entro) 
 							nextState = INICIO;
 						else 
 							nextState = FIN;						
@@ -76,7 +76,7 @@ module StateMachineCalculator(
 			case(state)
 				INICIO:
 					begin
-						guardeNum = 0;
+						guardeNum = 1;
 						leaResult = 0;					
 					end
 				GET_1ST_NUMBER:
@@ -96,8 +96,8 @@ module StateMachineCalculator(
 					begin
 					if(rec_op & ~entro)
 						begin
-							guardeNum = 1;
-							leaResult = 0;
+							guardeNum = 0;
+							leaResult = 1;
 						end
 					else
 						begin
@@ -107,8 +107,12 @@ module StateMachineCalculator(
 					end
 				FIN:
 					begin 
-						guardeNum = 0;
-						leaResult = 1;
+						if(rec_op & ~entro) begin
+							guardeNum = 0;
+							leaResult = 0; end
+						else 					begin
+							guardeNum = 1;
+							leaResult = 1; end
 					end			
 				default: 
 					begin
