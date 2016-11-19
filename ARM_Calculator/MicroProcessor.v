@@ -28,6 +28,12 @@ module MicroProcessor(
 	 input wire [1:0]ImmSrc,
     input wire RegWrite, 
 	 input wire [1:0]RegSrc,
+	 
+	 input [31:0]EntradaCalcu,
+	 input [31:0]addressCalcu,
+	 input writeEnableCalcu,
+	 output wire [31:0]resultadoCalcu,
+	 
 	 output wire [3:0]ALUFlags,
   	 output wire [31:0]Instr,
 	// output ,
@@ -110,8 +116,17 @@ module MicroProcessor(
 		.WD(RD2),
 		.MemWrite(MemWrite), 
 		//out
-		.ReadData(ReadData)	 	 
+		.ReadData(ReadData),
+		
+		
+		.EntradaCalcu(EntradaCalcu),
+		.addressCalcu(addressCalcu),
+		.writeEnableCalcu(writeEnableCalcu),
+		.resultadoCalcu(resultadoCalcu)		
     );
+	 
+	 
+	 
 	 
 	  WriteBack write_back(
 		.ReadData(ReadData),

@@ -20,8 +20,13 @@
 //////////////////////////////////////////////////////////////////////////////////
 module SingleCycleuProcessor(
 		input CLK,
-	
-		output wire [31:0]RD2,
+		
+		input [31:0]EntradaCalcu,
+		input [31:0]addressCalcu,
+		input writeEnableCalcu,
+		output wire [31:0]resultadoCalcu  //,
+		
+		/*output wire [31:0]RD2,
 		output wire PCSrc,
 		output wire MemtoReg,
 		output wire MemWrite,	 
@@ -36,10 +41,29 @@ module SingleCycleuProcessor(
 		output wire [31:0]SrcB,
 		output wire [31:0]RD1,
 		output wire [3:0] RA1,
-		output wire [31:0]Result
+		output wire [31:0]Result*/
 	 
     );
-	wire [31:0]ReadData;
+	 
+		wire [31:0]ReadData;
+	
+	
+	   wire [31:0]RD2;
+		wire PCSrc;
+		wire MemtoReg;
+		wire MemWrite;	 
+		wire [1:0]ALUControl;
+		wire [1:0]ALUSrc;
+		wire [1:0]ImmSrc;
+		wire RegWrite;
+		wire [1:0]RegSrc;
+		wire [3:0]ALUFlags;
+		wire [31:0]Instr;
+		wire [31:0]ALUResult;
+		wire [31:0]SrcB;
+		wire [31:0]RD1;
+		wire [3:0] RA1;
+		wire [31:0]Result;
 	
 	 
 	Control_Unit control_unit(
@@ -70,18 +94,21 @@ module SingleCycleuProcessor(
 		.ImmSrc(ImmSrc),
 		.RegWrite(RegWrite), 
 		.RegSrc(RegSrc),
+		.EntradaCalcu(EntradaCalcu),
+		.addressCalcu(addressCalcu),
+		.writeEnableCalcu(writeEnableCalcu),
 	 //out
 		.ALUFlags(ALUFlags),
 		.Instr(Instr),
-		//.ReadData(ReadData),
 		.RD2(RD2),
 		.ALUResult(ALUResult),
 		.SrcB(SrcB),
 		.RD1(RD1),
 		.RA1(RA1),
-		.Result(Result)
+		.Result(Result),
+		.resultadoCalcu(resultadoCalcu)
 	 );
 	 
-	 
+
 
 endmodule

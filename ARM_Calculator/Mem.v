@@ -23,7 +23,13 @@ module Mem(
     input [31:0] ALUResult,
     input [31:0] WD,
     input MemWrite,
-    output wire[31:0] ReadData	 	 
+	 
+	 input [31:0]EntradaCalcu,
+	 input [31:0]addressCalcu,
+	 input writeEnableCalcu,
+	 output wire [31:0]resultadoCalcu,
+    
+	 output wire[31:0] ReadData	 	 
     );
 		
 	 
@@ -32,7 +38,13 @@ module Mem(
 		.writeEnable(MemWrite),
 		.dataInput(WD),
 		.address(ALUResult),
-		.dataOutput(ReadData)
+		.dataOutput(ReadData),
+		
+		.EntradaCalcu(EntradaCalcu),
+	   .addressCalcu(addressCalcu),
+		.writeEnableCalcu(writeEnableCalcu),
+	   .resultadoCalcu(resultadoCalcu)
+	
     );
 	 
 	 

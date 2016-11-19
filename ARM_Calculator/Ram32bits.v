@@ -21,9 +21,14 @@
 module Ram32bits(
 			input clk,
 			input CE,
+			input CE2,
+			input CE3,
 			input WE,
+			input WE3,
 			input [31:0]Di,
-			output wire [31:0]Do
+			input [31:0]Di3,
+			output wire [31:0]Do,
+			output wire [31:0]Do2
     );
 	 
 	reg [31:0]registro=0;
@@ -36,11 +41,18 @@ module Ram32bits(
 		else
 			registro=registro;
 			
+		if(WE3 & CE3)
+			registro=Di3; 
+		else
+			registro=registro;
+			
 	end
+	
+
 	
 	
 	assign Do = (CE)? registro: 32'bz;
-	
+	assign Do2 = (CE2)? registro: 32'bz;
 	
 
 endmodule
