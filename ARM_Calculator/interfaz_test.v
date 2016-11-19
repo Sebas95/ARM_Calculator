@@ -4,7 +4,7 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   01:41:07 11/19/2016
+// Create Date:   10:27:57 11/19/2016
 // Design Name:   SingleCycleuProcessor
 // Module Name:   C:/Users/Sebastian/Documents/GitHub/ARM_Calculator/ARM_Calculator/interfaz_test.v
 // Project Name:  ARM_Calculator
@@ -32,6 +32,22 @@ module interfaz_test;
 
 	// Outputs
 	wire [31:0] resultadoCalcu;
+	wire [31:0] RD2;
+	wire PCSrc;
+	wire MemtoReg;
+	wire MemWrite;
+	wire [1:0] ALUControl;
+	wire [1:0] ALUSrc;
+	wire [1:0] ImmSrc;
+	wire RegWrite;
+	wire [1:0] RegSrc;
+	wire [3:0] ALUFlags;
+	wire [31:0] Instr;
+	wire [31:0] ALUResult;
+	wire [31:0] SrcB;
+	wire [31:0] RD1;
+	wire [3:0] RA1;
+	wire [31:0] Result;
 
 	// Instantiate the Unit Under Test (UUT)
 	SingleCycleuProcessor uut (
@@ -39,7 +55,23 @@ module interfaz_test;
 		.EntradaCalcu(EntradaCalcu), 
 		.addressCalcu(addressCalcu), 
 		.writeEnableCalcu(writeEnableCalcu), 
-		.resultadoCalcu(resultadoCalcu)
+		.resultadoCalcu(resultadoCalcu), 
+		.RD2(RD2), 
+		.PCSrc(PCSrc), 
+		.MemtoReg(MemtoReg), 
+		.MemWrite(MemWrite), 
+		.ALUControl(ALUControl), 
+		.ALUSrc(ALUSrc), 
+		.ImmSrc(ImmSrc), 
+		.RegWrite(RegWrite), 
+		.RegSrc(RegSrc), 
+		.ALUFlags(ALUFlags), 
+		.Instr(Instr), 
+		.ALUResult(ALUResult), 
+		.SrcB(SrcB), 
+		.RD1(RD1), 
+		.RA1(RA1), 
+		.Result(Result)
 	);
 
 	always #5 CLK=~CLK;
@@ -51,39 +83,37 @@ module interfaz_test;
 
 		// Wait 100 ns for global reset to finish
 		#100;
-      EntradaCalcu = 32'd7;
+      EntradaCalcu = 32'd99;
 		addressCalcu = 32'd16;
 		writeEnableCalcu = 0; 
 		
 		//no hace nada
-		#100;
+		#10;
       EntradaCalcu = 32'd7;
 		addressCalcu = 32'd16;
 		writeEnableCalcu = 1;
 
-		#100;
-      EntradaCalcu = 32'd8;
+		#10;
+      EntradaCalcu = 32'd10;
 		addressCalcu = 32'd20;
 		writeEnableCalcu = 0;
 
 		//no hace nada
-		#100;
+		#10;
       EntradaCalcu = 32'd6;
 		addressCalcu = 32'd20;
 		writeEnableCalcu = 1;	
 
-		#100;
-      EntradaCalcu = 32'd2;//codigo de operacion
+		#10;
+      EntradaCalcu = 32'd1;//codigo de operacion
 		addressCalcu = 32'd0;
 		writeEnableCalcu = 0;
 
 		//no hace nada
-		#100;
-      EntradaCalcu = 32'd6;
+		#10;
+      EntradaCalcu = 32'd1;
 		addressCalcu = 32'd20;
-		writeEnableCalcu = 1;		
-		  
-		
+		writeEnableCalcu = 1;	
 
 	end
       
