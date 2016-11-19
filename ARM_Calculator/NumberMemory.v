@@ -28,9 +28,8 @@ module NumberMemory(
 	 output reg [3:0] counterTotal = 0
     );
 	 
-	 wire cambio = newDigit | saveNumber ;
-	 reg numPrueba = 32'b0;
-	 always@(posedge cambio)
+	 reg entro = 1'b0;
+	 always@(posedge clk)
 		begin
 			if(saveNumber)
 				begin
@@ -42,11 +41,20 @@ module NumberMemory(
 						numActual = 40'b0;
 						counterTotal = 4'b0; end
 				end
-			else 
-				begin		
-					counterTotal = counterTotal + 1;
+			else if(newDigit & ~entro)
+				begin	
+					entro	= 1'b1;
+					counterTotal = counterTotal + 1'b1;
 					numActual = numActual << 4;
 					numActual[3:0] = digit;					
+				end
+			else begin
+				numActual = numActual;
+				counterTotal = counterTotal;
+				if(newDigit)
+					entro = entro;
+				else
+					entro = 1'b0;
 				end
 		end	
 
