@@ -34,7 +34,7 @@ module Calculator(
 	wire [9:0] xm;
 	wire [8:0] ym;
 	//wire [2:0] btn;
-	wire [31:0]reg_op = {{28{1'b0}},digitr};
+	wire [31:0]reg_op = {{28{1'b0}},digit};
 	wire [31:0] numActual;
 	wire [3:0] counterTotal;
 	
@@ -44,7 +44,6 @@ module Calculator(
 	//wire leaResult;
 	wire guardeNum;
 	wire newDigit;
-	wire [3:0] digitr;
 	wire [3:0] digit;
 	wire guardeNumProcessor;
 	assign WE = guardeOpProcessor | guardeNumProcessor;
@@ -100,7 +99,7 @@ module Calculator(
     .clicked(btn),
     .Xlocation(xm),
     .Ylocation(ym),
-    .clickedMatrix(digitr),
+    .clickedMatrix(digit),
 	 .newDigit(newDigit),
 	 .newOp(newOp)
     );
