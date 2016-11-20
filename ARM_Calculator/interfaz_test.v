@@ -25,7 +25,7 @@
 module interfaz_test;
 
 	// Inputs
-	reg CLK=0;
+	reg CLK=1;
 	reg [31:0] EntradaCalcu;
 	reg [31:0] addressCalcu;
 	reg writeEnableCalcu;
@@ -87,33 +87,21 @@ module interfaz_test;
 		addressCalcu = 32'd16;
 		writeEnableCalcu = 0; 
 		
-		//no hace nada
-		#10;
-      EntradaCalcu = 32'd7;
-		addressCalcu = 32'd16;
-		writeEnableCalcu = 1;
+		
 
 		#10;
       EntradaCalcu = 32'd10;
 		addressCalcu = 32'd20;
 		writeEnableCalcu = 0;
 
-		//no hace nada
-		#10;
-      EntradaCalcu = 32'd6;
-		addressCalcu = 32'd20;
-		writeEnableCalcu = 1;	
+		
 
 		#10;
       EntradaCalcu = 32'd1;//codigo de operacion
 		addressCalcu = 32'd0;
 		writeEnableCalcu = 0;
 
-		//no hace nada
-		#10;
-      EntradaCalcu = 32'd1;
-		addressCalcu = 32'd20;
-		writeEnableCalcu = 1;	
+		
 
 	end
       

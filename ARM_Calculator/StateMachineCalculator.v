@@ -91,23 +91,26 @@ module StateMachineCalculator(
 						guardeNum = 1;
 						leaResult = 0;					
 							guardeNumProcessor = 0;
-							guardeOpProcessor = 0;							
+							guardeOpProcessor = 0;	
+							address = 32'd0;
 					end
 				GET_1ST_NUMBER:
 					begin
 					if(rec_op & ~entro)
 						begin
-							guardeNum = 1;
+							guardeNum = 0;
 							leaResult = 0;
 							guardeNumProcessor = 0;
-							guardeOpProcessor = 0;								
+							guardeOpProcessor = 0;	
+							address = 32'd0;
 						end
 					else
 						begin
 							guardeNum = 0;
 							leaResult = 0;
 							guardeNumProcessor = 0;
-							guardeOpProcessor = 0;								
+							guardeOpProcessor = 0;	
+							address = 32'd0;							
 						end
 					end
 				GUARDE_NUM1:
@@ -120,11 +123,11 @@ module StateMachineCalculator(
 				end
 				GUARDE_OP: 
 					begin
-							guardeNum = 0;
+							guardeNum = 1;
 							leaResult = 0;					
 						guardeNumProcessor = 0;
 						guardeOpProcessor = 1;
-						address = 32'd20;
+						address = 32'd0;
 					end
 				GET_2ND_NUMBER:
 					begin
@@ -133,14 +136,16 @@ module StateMachineCalculator(
 							guardeNum = 0;
 							leaResult = 1;
 							guardeNumProcessor = 0;
-							guardeOpProcessor = 0;							
+							guardeOpProcessor = 0;	
+							address = 32'd0;							
 						end
 					else
 						begin
 							guardeNum = 0;
 							leaResult = 0;
 							guardeNumProcessor = 0;
-							guardeOpProcessor = 0;								
+							guardeOpProcessor = 0;	
+							address = 32'd0;							
 						end
 					end
 				GUARDE_NUM2:
@@ -149,7 +154,7 @@ module StateMachineCalculator(
 							leaResult = 0;				
 						guardeNumProcessor = 1;
 						guardeOpProcessor = 0;	
-						address = 32'd24;						
+						address = 32'd20;						
 				end
 				FIN:
 					begin 
@@ -157,13 +162,15 @@ module StateMachineCalculator(
 							guardeNum = 0;
 							leaResult = 0; 
 							guardeNumProcessor = 0;
-							guardeOpProcessor = 0;								
+							guardeOpProcessor = 0;	
+							address = 32'd0;							
 							end
 						else 					begin
 							guardeNum = 1;
 							leaResult = 1; 
 							guardeNumProcessor = 0;
-							guardeOpProcessor = 0;								
+							guardeOpProcessor = 0;	
+							address = 32'd0;							
 							end
 					end			
 				default: 
@@ -171,7 +178,8 @@ module StateMachineCalculator(
 						guardeNum = 0;
 						leaResult = 0;
 							guardeNumProcessor = 0;
-							guardeOpProcessor = 0;							
+							guardeOpProcessor = 0;
+							address = 32'd0;							
 					end
 		endcase
 

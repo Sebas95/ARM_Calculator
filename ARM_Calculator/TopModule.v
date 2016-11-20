@@ -21,16 +21,19 @@
 module TopModule(
 	input wire CLK_100MHZ,
 	input wire reset,
+	input wire [31:0] boton,
+	input wire switch,
 	inout wire ps2d, ps2c,
 	output wire hsync, vsync,
-   output wire [2:0] rgb,
+   output wire [2:0] rgb
     );
 	
 		wire [31:0]EntradaCalcu;
 		wire [31:0]addressCalcu;
 		wire writeEnableCalcu;
-		wire [31:0]resultadoCalcu;
-	
+		wire [31:0] resultadoCalcu;
+		wire [31:0] numAGuardar; 
+		wire WE;
 	Calculator interfazGrafica(
 		.CLK_100MHZ(CLK_100MHZ),
 		.reset(reset),
@@ -39,6 +42,11 @@ module TopModule(
 		.hsync(hsync), 
 		.vsync(vsync),
 		.rgb(rgb),
+		.leaResult(),
+		.numAGuardar(resultadoCalcu),
+		.address(addressCalcu),
+		.WE(WE),
+		.result(EntradaCalcu)
 		//.leaResult()
     );
 	 
@@ -47,7 +55,7 @@ module TopModule(
 		.CLK(CLK_100MHZ),
 		.EntradaCalcu(EntradaCalcu),
 		.addressCalcu(addressCalcu),
-		.writeEnableCalcu(~writeEnableCalcu),
+		.writeEnableCalcu(WE),
 		.resultadoCalcu(resultadoCalcu),
 		
 		

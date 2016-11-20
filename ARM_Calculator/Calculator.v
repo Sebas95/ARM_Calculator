@@ -21,11 +21,12 @@
 module Calculator(
 	input wire CLK_100MHZ,
 	input wire reset,
+	output wire  [31:0] result,
 	inout wire ps2d, ps2c,
 	output wire hsync, vsync,
    output wire [2:0] rgb,
 	output wire leaResult,
-	output wire [32:0] numAGuardar,
+	input wire [31:0] numAGuardar,
 	output wire [32:0] address,
 	output wire WE
     );
@@ -47,11 +48,11 @@ module Calculator(
 	wire guardeNumProcessor;
 	assign WE = guardeOpProcessor || guardeNumProcessor;
 	
-	 Mux muxWriteBack(
+	 Mux muxCal(
 		 .A(reg_op),	//Entrada 0 de 32 bits
 		 .B(numActual),		//Entrada 1 de 32 bits
 		 .S(guardeOpProcessor),		//Entrada de seleccion de 1 bit
-		 .Y(numAGuardar)	   );   //Salida de data seleccionada de 32 bits
+		 .Y(result)	   );   //Salida de data seleccionada de 32 bits
 	 
 	NumberMemory memoriaNumeros(
 		.clk(CLK_100MHZ),
@@ -60,8 +61,11 @@ module Calculator(
 		.leaResultado(leaResult),
 		.counterTotal(counterTotal),
 		.saveNumber(guardeNum),
-		.digit(digit)
+		.digit(digit),
+		.resultado(numAGuardar)
     );
+	 
+	 
 
 
    mouseController mouseC

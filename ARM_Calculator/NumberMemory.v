@@ -23,6 +23,7 @@ module NumberMemory(
 	 input newDigit,
 	 input saveNumber,
 	 input leaResultado,
+	 input [31:0] resultado,
 	 input [3:0] digit,
     output reg [39:0] numActual,
 	 output reg [3:0] counterTotal = 0
@@ -35,8 +36,8 @@ module NumberMemory(
 				begin
 				//Aqui se manda el dato
 					if(leaResultado) begin
-						numActual = 40'b1100_1110_1001;
-						counterTotal = 4'd3; end
+						numActual = resultado;
+						counterTotal = 4'd5; end
 					else begin
 						numActual = 40'b0;
 						counterTotal = 4'b0; end

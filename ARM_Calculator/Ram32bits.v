@@ -31,7 +31,7 @@ module Ram32bits(
 			output wire [31:0]Do2
     );
 	 
-	reg [31:0]registro=0;
+	reg [31:0]registro=32'd2;
 	
 	
 	always @(negedge clk)
