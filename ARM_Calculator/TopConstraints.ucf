@@ -30,7 +30,3 @@ NET "switch" LOC = T10;
 
 
 //NET "btn[0]" LOC = U16;
-
-
-
-

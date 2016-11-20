@@ -1,0 +1,36 @@
+
+
+NET "CLK" LOC = V10;
+NET "CLK" PERIOD = 20.0ns HIGH 40%;
+
+NET "EntradaCalcu[0]"  LOC = T10;
+NET "EntradaCalcu[1]"  LOC = T9;
+NET "EntradaCalcu[2]"  LOC = V9;
+NET "EntradaCalcu[3]"  LOC = M8;
+NET "EntradaCalcu[4]"  LOC = N8;
+NET "EntradaCalcu[5]"  LOC = U8;
+NET "EntradaCalcu[6]"  LOC = V8;
+
+NET "writeEnableCalcu"  LOC = T5; 
+
+NET "resultadoCalcu[0]"  LOC = U16;
+NET "resultadoCalcu[1]"  LOC = V16;
+NET "resultadoCalcu[2]"  LOC = U15;
+NET "resultadoCalcu[3]"  LOC = V15;
+NET "resultadoCalcu[4]"  LOC = M11;
+NET "resultadoCalcu[5]"  LOC = N11;
+NET "resultadoCalcu[6]"  LOC = R11;
+NET "resultadoCalcu[7]"  LOC = T11;
+
+
+NET "addressCalcu[0]"  LOC = D9;
+NET "addressCalcu[1]"  LOC = B8;
+NET "addressCalcu[2]"  LOC = C4;
+
+
+
+
+
+
+
+

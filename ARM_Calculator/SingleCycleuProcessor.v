@@ -24,7 +24,7 @@ module SingleCycleuProcessor(
 		input [31:0]EntradaCalcu,
 		input [31:0]addressCalcu,
 		input writeEnableCalcu,
-		output wire [31:0]resultadoCalcu  ,
+		output wire [31:0]resultadoCalcu  /*,
 		
 		output wire [31:0]RD2,
 		output wire PCSrc,
@@ -41,14 +41,14 @@ module SingleCycleuProcessor(
 		output wire [31:0]SrcB,
 		output wire [31:0]RD1,
 		output wire [3:0] RA1,
-		output wire [31:0]Result
+		output wire [31:0]Result*/
 	 
     );
 	 
 		wire [31:0]ReadData;
 	
 	
-	  /* wire [31:0]RD2;
+	  wire [31:0]RD2;
 		wire PCSrc;
 		wire MemtoReg;
 		wire MemWrite;	 
@@ -64,7 +64,7 @@ module SingleCycleuProcessor(
 		wire [31:0]RD1;
 		wire [3:0] RA1;
 		wire [31:0]Result;
-		*/
+		
 	
 	 
 	Control_Unit control_unit(
