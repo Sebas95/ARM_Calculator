@@ -127,7 +127,7 @@ module clickedSquare(
 			newOp = 1'b1; end
 	//Si ninguno es clickeado
 		else
-			begin  clickedMatrix = 4'b0;	
+			begin  clickedMatrix = 1'b0;	
 			newOp = 1'b0;
 			newDigit = 1'b0; end
 endmodule

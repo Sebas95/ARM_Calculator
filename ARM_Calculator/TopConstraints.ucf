@@ -23,9 +23,11 @@ NET "ps2c" LOC= L13 | PULLUP;
 //NET "switch" LOC = T10;
 
 ///NET "leaResult"  LOC = U16;
-//NET "clickedMatrix[1]"  LOC = V16;
-//NET "clickedMatrix[2]"  LOC = U15;
-//NET "clickedMatrix[3]"  LOC = V15;
+NET "EntradaCalcu[0]"  LOC = U16;
+NET "EntradaCalcu[1]"  LOC = V16;
+NET "EntradaCalcu[2]"  LOC = U15;
+NET "EntradaCalcu[3]"  LOC = V15;
+
 
 
 

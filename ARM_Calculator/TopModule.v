@@ -25,10 +25,11 @@ module TopModule(
 	//input wire switch,
 	inout wire ps2d, ps2c,
 	output wire hsync, vsync,
-   output wire [2:0] rgb
+   output wire [2:0] rgb,
+	output wire [31:0]EntradaCalcu
     );
 	
-		wire [31:0]EntradaCalcu;
+		
 		wire [31:0]addressCalcu;
 		wire writeEnableCalcu;
 		wire [31:0] resultadoCalcu;

@@ -41,7 +41,7 @@ module SingleCycleuProcessor(
 		output wire [31:0]SrcB,
 		output wire [31:0]RD1,
 		output wire [3:0] RA1,
-		output wire [31:0]Result*/
+		output wire [31:0]Result */
 	 
     );
 	 
