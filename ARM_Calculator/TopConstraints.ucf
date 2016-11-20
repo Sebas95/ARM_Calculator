@@ -19,8 +19,8 @@ NET "vsync" LOC = P7;
 NET "ps2d" LOC= K14 | PULLUP;
 NET "ps2c" LOC= L13 | PULLUP;
 
-NET "boton[0]" LOC = C9;
-NET "switch" LOC = T10;
+//NET "boton[0]" LOC = C9;
+//NET "switch" LOC = T10;
 
 ///NET "leaResult"  LOC = U16;
 //NET "clickedMatrix[1]"  LOC = V16;

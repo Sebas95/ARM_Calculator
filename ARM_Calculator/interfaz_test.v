@@ -31,7 +31,7 @@ module interfaz_test;
 	reg writeEnableCalcu;
 
 	// Outputs
-	wire [31:0] resultadoCalcu;
+	/*wire [31:0] resultadoCalcu;
 	wire [31:0] RD2;
 	wire PCSrc;
 	wire MemtoReg;
@@ -48,15 +48,15 @@ module interfaz_test;
 	wire [31:0] RD1;
 	wire [3:0] RA1;
 	wire [31:0] Result;
-
+*/
 	// Instantiate the Unit Under Test (UUT)
 	SingleCycleuProcessor uut (
 		.CLK(CLK), 
 		.EntradaCalcu(EntradaCalcu), 
 		.addressCalcu(addressCalcu), 
 		.writeEnableCalcu(writeEnableCalcu), 
-		.resultadoCalcu(resultadoCalcu), 
-		.RD2(RD2), 
+		.resultadoCalcu(resultadoCalcu)
+		/*.RD2(RD2), 
 		.PCSrc(PCSrc), 
 		.MemtoReg(MemtoReg), 
 		.MemWrite(MemWrite), 
@@ -71,7 +71,7 @@ module interfaz_test;
 		.SrcB(SrcB), 
 		.RD1(RD1), 
 		.RA1(RA1), 
-		.Result(Result)
+		.Result(Result)*/
 	);
 
 	always #5 CLK=~CLK;

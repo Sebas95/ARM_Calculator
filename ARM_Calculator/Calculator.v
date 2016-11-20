@@ -33,9 +33,9 @@ module Calculator(
 	 
 	wire [9:0] xm;
 	wire [8:0] ym;
-	wire [2:0] btn;
+	//wire [2:0] btn;
 	wire reg_op = {{28{1'b0}},digit};
-	wire [39:0] numActual;
+	wire [31:0] numActual;
 	wire [3:0] counterTotal;
 	
 	wire guardeOpProcessor;
@@ -46,7 +46,19 @@ module Calculator(
 	wire newDigit;
 	wire [3:0] digit;
 	wire guardeNumProcessor;
-	assign WE = guardeOpProcessor || guardeNumProcessor;
+	assign WE = guardeOpProcessor | guardeNumProcessor;
+	
+		reg CLK50=0;
+	reg CLK25=0;
+	always@(posedge CLK_100MHZ)
+	begin
+		CLK50=~CLK50;
+	end
+	
+	always@(posedge CLK50)
+	begin
+		CLK25=~CLK25;
+	end
 	
 	 Mux muxCal(
 		 .A(reg_op),	//Entrada 0 de 32 bits
@@ -55,7 +67,7 @@ module Calculator(
 		 .Y(result)	   );   //Salida de data seleccionada de 32 bits
 	 
 	NumberMemory memoriaNumeros(
-		.clk(CLK_100MHZ),
+		.clk(CLK25),
 		.numActual(numActual),
 		.newDigit(newDigit),
 		.leaResultado(leaResult),
@@ -93,7 +105,7 @@ module Calculator(
     );
 	 
 	 StateMachineCalculator maquinaEstados(
-    .clk(CLK_100MHZ),
+    .clk(CLK25),
 	 .rec_op(newOp),
 	 .rec_num(newDigit),
 	 .guardeNum(guardeNum),

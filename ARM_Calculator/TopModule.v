@@ -21,8 +21,8 @@
 module TopModule(
 	input wire CLK_100MHZ,
 	input wire reset,
-	input wire [31:0] boton,
-	input wire switch,
+	//input wire [31:0] boton,
+	//input wire switch,
 	inout wire ps2d, ps2c,
 	output wire hsync, vsync,
    output wire [2:0] rgb
@@ -32,8 +32,21 @@ module TopModule(
 		wire [31:0]addressCalcu;
 		wire writeEnableCalcu;
 		wire [31:0] resultadoCalcu;
-		wire [31:0] numAGuardar; 
 		wire WE;
+		
+		
+	reg CLK50=0;
+	reg CLK25=0;
+	always@(posedge CLK_100MHZ)
+	begin
+		CLK50=~CLK50;
+	end
+	
+	always@(posedge CLK50)
+	begin
+		CLK25=~CLK25;
+	end
+	
 	Calculator interfazGrafica(
 		.CLK_100MHZ(CLK_100MHZ),
 		.reset(reset),
@@ -52,31 +65,11 @@ module TopModule(
 	 
 	 
 	 SingleCycleuProcessor Procesador(
-		.CLK(CLK_100MHZ),
+		.CLK(CLK25),
 		.EntradaCalcu(EntradaCalcu),
 		.addressCalcu(addressCalcu),
 		.writeEnableCalcu(WE),
-		.resultadoCalcu(resultadoCalcu),
-		
-		
-		//no connected
-		.RD2(),
-		.PCSrc(),
-		.MemtoReg(),
-		.MemWrite(),	 
-		.ALUControl(),
-		.ALUSrc(),
-		.ImmSrc(),
-		.RegWrite(),
-		.RegSrc(),
-		.ALUFlags(),
-		.Instr(),
-		.ALUResult(),
-		.SrcB(),
-		.RD1(),
-		.RA1(),
-		.Result()
-	 
+		.resultadoCalcu(resultadoCalcu)
     );
 	 
 
