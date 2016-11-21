@@ -56,7 +56,7 @@ module TopModule(
 		.hsync(hsync), 
 		.vsync(vsync),
 		.rgb(rgb),
-		.leaResult(),
+		
 		.numAGuardar(resultadoCalcu),
 		.address(addressCalcu),
 		.WE(WE),
